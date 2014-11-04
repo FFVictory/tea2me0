@@ -7,7 +7,7 @@ import java.io.FileOutputStream;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
-
+import lib.AeSimpleSHA1;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -265,7 +265,42 @@ public class User {
 		return Storedpos;
       	
           }
-    
-   
+
+    public boolean RegisterUser(String address, String Password, String fname, String sname){
+        AeSimpleSHA1 sha1handler=  new AeSimpleSHA1();
+        String EncodedPassword=null;
+        try {
+            EncodedPassword= sha1handler.SHA1(Password);
+        }catch (UnsupportedEncodingException | NoSuchAlgorithmException et){ //????????
+            System.out.println("Can't check your password");
+            return false;
+        }
+
+        try{
+        connect = DriverManager.getConnection("jdbc:mysql://(???url???)" + "user=sqluser & password=sqluserpw");
+        preparedStatement  = connect.prepareStatement("insert into staffmember (address,password,first_name,last_name,postion)" + " Values(?,?,?,?,?)");
+
+        preparedStatement.setString(1,address);
+        preparedStatement.setString(2,EncodedPassword);
+        preparedStatement.setString(3,fname);
+        preparedStatement.setString(4,sname);
+        preparedStatement.setInt(5, 1);
+
+
+        resultSet = preparedStatement.executeQuery();
+
+        }catch (Exception ex) {
+            System.out.println(ex);
+        }finally {
+            try {
+                resultSet.close();
+                preparedStatement.close();
+                connect.close();
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+    }
+        return true;
+    }
     
 }
