@@ -10,7 +10,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import models.User;
+import stores.*;
 
 /**
  *
@@ -63,11 +65,19 @@ public class Register extends HttpServlet {
         String password=request.getParameter("password");
         String fname=request.getParameter("fname");
         String sname=request.getParameter("sname");
+
+        HttpSession session=request.getSession();
+        LoggedIn lg = (LoggedIn) session.getAttribute("LoggedIn");
+        int position = lg.getPosition();
         
         User us=new User();
-        us.RegisterUser(address, password, fname, sname);
-        
-	response.sendRedirect("/Instagrim");
+        us.RegisterUser(address, password, fname, sname, position);
+
+        if(position == 2) {
+            response.sendRedirect("/Manager/Staff");
+        }else {
+            response.sendRedirect("/Ceo/Staff");
+        }
     }
 
     /**
