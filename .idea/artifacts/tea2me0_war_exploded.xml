@@ -6,6 +6,9 @@
         <element id="directory" name="classes">
           <element id="module-output" name="tea2me0" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="mysql-connector-java-5.1.31-bin" />
+        </element>
       </element>
       <element id="javaee-facet-resources" facet="tea2me0/web/Web" />
     </root>

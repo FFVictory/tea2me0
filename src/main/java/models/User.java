@@ -56,7 +56,7 @@ public class User {
                 System.out.println(e);
             }
         }
-             
+       return true; // THIS LINE IS FILLER CRAP
     }
         
     
