@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
-  <data-source source="LOCAL" name="MySQL - @silva.computing.dundee.ac.uk" uuid="46708ce9-bc1f-412f-b986-c5d197c3e17e">
+  <data-source name="MySQL - @silva.computing.dundee.ac.uk" uuid="46708ce9-bc1f-412f-b986-c5d197c3e17e">
     <database-info product="MySQL" version="5.6.20-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.31 ( Revision: alexander.soklakov@oracle.com-20140520065950-groqzzbvxprqdmnz )">
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>
@@ -18,7 +18,6 @@
       <column name="revenue" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <column name="cityId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="branchId"/>
-      <foreign-key name="fk4" columns="branchId" ref-table="branch_tea" ref-schema="" ref-catalog="14ac3d32" ref-columns="branchId" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="fk5" columns="cityId" ref-table="city" ref-schema="" ref-catalog="14ac3d32" ref-columns="cityId" update-rule="3" delete-rule="3" deferrability="2"/>
       <exported-key name="fk6" table="food" schema="" catalog="14ac3d32" columns="foodId"/>
       <exported-key name="fk13" table="staffmember" schema="" catalog="14ac3d32" columns="branchId"/>
@@ -28,8 +27,8 @@
       <column name="branchId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="teaId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="stockLevel" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="stockRequested" sqlType="BIT" precision="1" scale="0" nullable="true" jdbcType="-7"/>
       <primary-key name="PRIMARY" columns="branchId,teaId"/>
-      <exported-key name="fk4" table="branch" schema="" catalog="14ac3d32" columns="branchId"/>
     </table>
     <table name="certified" schema="" catalog="14ac3d32" type="TABLE">
       <column name="teaId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
