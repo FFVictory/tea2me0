@@ -4,12 +4,16 @@ package models;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import lib.AeSimpleSHA1;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import com.mysql.jdbc.Driver;
+import stores.LoggedIn;
 
 public class User {
 	  private static Connection connect = null;
@@ -32,22 +36,26 @@ public class User {
             return false;
         }
         try {
-            connect = DriverManager
-                    .getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306" + "user=14ac3u32 & password=cab123");///////////////////////what's this?
-            preparedStatement = connect.prepareStatement("select password from userprofiles where login =?");
+            Class.forName("com.mysql.jdbc.Driver");
+            connect = DriverManager.getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306?"
+                                                +"user=14ac3u32&password=cab123");
+            preparedStatement = connect.prepareStatement("select password from 14ac3d32.staffmember where staffId = ?;");
             preparedStatement.setString(1, username);
             resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
 
                 String StoredPass = resultSet.getString("password");
-                if (StoredPass.compareTo(EncodedPassword) == 0)
+                if (StoredPass.compareTo(EncodedPassword) == 0) {
                     return true;
+                }else {
+                    return false;
+                }
             }
         } catch (Exception ex) {
             System.out.println(ex);
         } finally {
-            try {
+                try {
                 resultSet.close();
                 preparedStatement.close();
                 connect.close();
@@ -55,6 +63,7 @@ public class User {
                 System.out.println(e);
             }
         }
+        return true;//need to correct this method
 
     }
         
@@ -91,15 +100,17 @@ public class User {
     {
     	String Storedname = null;
     	 try{
+             Class.forName("com.mysql.jdbc.Driver");
     	        connect = DriverManager
-    	                .getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306" + "user=14ac3u32 & password=cab123");
-    	        preparedStatement  = connect.prepareStatement("select first_name from userprofiles where login =?");
+    	                .getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306?"
+                                +"user=14ac3u32&password=cab123");
+    	        preparedStatement  = connect.prepareStatement("select firstName from 14ac3d32.staffmember where staffId = ?;");
     	        preparedStatement.setString(1, username);
     	        resultSet = preparedStatement.executeQuery();
     	       
     	        	while (resultSet.next()){  
     	               
-    	        		Storedname = resultSet.getString("first_name");
+    	        		Storedname = resultSet.getString("firstName");
     	            }
     	        	
     	        }catch (Exception ex) {
@@ -120,15 +131,17 @@ public class User {
     {
     	String Storedname = null;
    	 try{
+         Class.forName("com.mysql.jdbc.Driver");
    	        connect = DriverManager
-   	                .getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306" + "user=14ac3u32 & password=cab123");
-   	        preparedStatement  = connect.prepareStatement("select last_name from userprofiles where login =?");
+   	                .getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306?"
+                            +"user=14ac3u32&password=cab123");
+   	        preparedStatement  = connect.prepareStatement("select lastName from 14ac3d32.staffmember where staffId = ?;");
    	        preparedStatement.setString(1, username);
    	        resultSet = preparedStatement.executeQuery();
    	       
    	        	while (resultSet.next()){  ///////////////is while right?
    	               
-   	        		Storedname = resultSet.getString("last_name");
+   	        		Storedname = resultSet.getString("lastName");
    	            }
    	        	
    	        }catch (Exception ex) {
@@ -144,47 +157,22 @@ public class User {
    	        }
    	return Storedname;
        }
-    public String Staff_ID(String username)
-    {
-    	String Storedname = null;
-   	 try{
-   	        connect = DriverManager
-   	                .getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306" + "user=14ac3u32 & password=cab123");
-   	        preparedStatement  = connect.prepareStatement("select staff_ID from userprofiles where login =?");
-   	        preparedStatement.setString(1, username);
-   	        resultSet = preparedStatement.executeQuery();
-   	       
-   	        	while (resultSet.next()){  ///////////////is while right?
-   	               
-   	        		Storedname = resultSet.getString("staff_ID");
-   	            }
-   	        	
-   	        }catch (Exception ex) {
-   	            System.out.println(ex);
-   	        }finally {
-   	            try {
-   	            	resultSet.close();
-   	            	preparedStatement.close();
-   	                connect.close();
-   	            } catch (SQLException e) {
-   	                System.out.println(e);
-   	            }
-   	        }
-   	return Storedname;
-       }
+
     public String BranchID(String username)
     {
     	String Storedname = null;
    	 try{
+         Class.forName("com.mysql.jdbc.Driver");
    	        connect = DriverManager
-   	                .getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306" + "user=14ac3u32 & password=cab123");
-   	        preparedStatement  = connect.prepareStatement("select BranchID from userprofiles where login =?");
+   	                .getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306?"
+                            +"user=14ac3u32&password=cab123");
+   	        preparedStatement  = connect.prepareStatement("select branchId from 14ac3d32.staffmember where staffId = ?;");
    	        preparedStatement.setString(1, username);
    	        resultSet = preparedStatement.executeQuery();
    	       
    	        	while (resultSet.next()){  ///////////////is while right?
    	               
-   	        		Storedname = resultSet.getString("BranchID");
+   	        		Storedname = resultSet.getString("branchId");
    	            }
    	        	
    	        }catch (Exception ex) {
@@ -204,15 +192,17 @@ public class User {
     {
     	String Storedname = null;
    	 try{
+         Class.forName("com.mysql.jdbc.Driver");
    	        connect = DriverManager
-   	                .getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306" + "user=14ac3u32 & password=cab123");
-   	        preparedStatement  = connect.prepareStatement("select skills from userprofiles where login =?");
+   	                .getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306?"
+                            +"user=14ac3u32&password=cab123");
+   	        preparedStatement  = connect.prepareStatement("select training from 14ac3d32.staffmember where staffId = ?;");
    	        preparedStatement.setString(1, username);
    	        resultSet = preparedStatement.executeQuery();
    	       
    	        	while (resultSet.next()){  ///////////////is while right?
    	               
-   	        		Storedname = resultSet.getString("skills");
+   	        		Storedname = resultSet.getString("training");
    	            }
    	        	
    	        }catch (Exception ex) {
@@ -233,9 +223,11 @@ public class User {
     {
     	 int Storedpos=0;
       	 try{
+             Class.forName("com.mysql.jdbc.Driver");
       	        connect = DriverManager
-      	                .getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306" + "user=14ac3u32 & password=cab123");
-      	        preparedStatement  = connect.prepareStatement("select position from userprofiles where login =?");
+      	                .getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306?"
+                                +"user=14ac3u32&password=cab123");
+      	        preparedStatement  = connect.prepareStatement("select position from 14ac3d32.staffmember where staffId = ?;");
       	        preparedStatement.setString(1, username);
       	        resultSet = preparedStatement.executeQuery();
       	       
@@ -259,7 +251,7 @@ public class User {
       	
           }
 
-    public boolean RegisterUser(String address, String Password, String fname, String sname, int user){
+    public boolean RegisterStaff(String address, String Password, String fname, String sname, int user){
         AeSimpleSHA1 sha1handler=  new AeSimpleSHA1();
         String EncodedPassword=null;
         try {
@@ -270,23 +262,18 @@ public class User {
         }
 
         try{
-        connect = DriverManager.getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306" + "user=14ac3u32 & password=cab123");
-        preparedStatement  = connect.prepareStatement("insert into staffmember (address,password,firstName,lastName,position,salary)" + " Values(?,?,?,?,?,?)");
+            Class.forName("com.mysql.jdbc.Driver");
+        connect = DriverManager.getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306?"
+                +"user=14ac3u32&password=cab123");
+        preparedStatement  = connect.prepareStatement("insert into staffmember (address,password,firstName,lastName,position,salary);" + " Values(?,?,?,?,?,?);");
 
         preparedStatement.setString(1,address);
         preparedStatement.setString(2,EncodedPassword);
         preparedStatement.setString(3,fname);
         preparedStatement.setString(4,sname);
+        preparedStatement.setInt(5, 1);
+        preparedStatement.setInt(6, 15000);
 
-
-            if(user == 2)
-                {
-                    preparedStatement.setInt(5, 2);
-                    preparedStatement.setInt(6, 25000);
-                }else{
-                    preparedStatement.setInt(5, 1);
-                    preparedStatement.setInt(6, 15000);
-                }
 
         resultSet = preparedStatement.executeQuery();
 
@@ -303,5 +290,44 @@ public class User {
     }
         return true;
     }
-    
+
+    public boolean RegisterManager(String address, String Password, String fname, String sname, int user){
+        AeSimpleSHA1 sha1handler=  new AeSimpleSHA1();
+        String EncodedPassword=null;
+        try {
+            EncodedPassword= sha1handler.SHA1(Password);
+        }catch (UnsupportedEncodingException | NoSuchAlgorithmException et){
+            System.out.println("Can't check your password");
+            return false;
+        }
+
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            connect = DriverManager.getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306?"
+                    +"user=14ac3u32&password=cab123");
+            preparedStatement  = connect.prepareStatement("insert into staffmember (address,password,firstName,lastName,position,salary);" + " Values(?,?,?,?,?,?);");
+
+            preparedStatement.setString(1,address);
+            preparedStatement.setString(2,EncodedPassword);
+            preparedStatement.setString(3,fname);
+            preparedStatement.setString(4,sname);
+            preparedStatement.setInt(5, 2);
+            preparedStatement.setInt(6, 25000);
+
+
+            resultSet = preparedStatement.executeQuery();
+
+        }catch (Exception ex) {
+            System.out.println(ex);
+        }finally {
+            try {
+                resultSet.close();
+                preparedStatement.close();
+                connect.close();
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+        }
+        return true;
+    }
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
-  <data-source name="MySQL - @silva.computing.dundee.ac.uk" uuid="46708ce9-bc1f-412f-b986-c5d197c3e17e">
+  <data-source source="LOCAL" name="MySQL - @silva.computing.dundee.ac.uk" uuid="46708ce9-bc1f-412f-b986-c5d197c3e17e">
     <database-info product="MySQL" version="5.6.20-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.31 ( Revision: alexander.soklakov@oracle.com-20140520065950-groqzzbvxprqdmnz )">
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>
@@ -122,6 +122,7 @@
       <column name="training" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="address" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
       <column name="branchId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="password" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="staffId"/>
       <foreign-key name="fk13" columns="branchId" ref-table="branch" ref-schema="" ref-catalog="14ac3d32" ref-columns="branchId" update-rule="3" delete-rule="3" deferrability="2"/>
       <index name="fk13" unique="false" columns="branchId"/>

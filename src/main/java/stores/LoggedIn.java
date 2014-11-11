@@ -2,7 +2,6 @@ package stores;
 
 public class LoggedIn {
     boolean logedin=false;
-    String Username=null;
     String first_name=null;
     String last_name=null;
     String staff_ID=null;
@@ -14,13 +13,7 @@ public class LoggedIn {
     public void LogedIn(){
         
     }
-    
-    public void setUsername(String name){
-        this.Username=name;
-    }
-    public String getUsername(){
-        return Username;
-    }
+
     public void setLogedin(){
         logedin=true;
     }

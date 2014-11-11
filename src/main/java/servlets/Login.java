@@ -12,11 +12,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.annotation.WebServlet;
 
 import stores.LoggedIn;
 import models.*;
 
-
+@WebServlet(name = "Login", urlPatterns = {"/Login"})
 public class Login extends HttpServlet {
 
     public void init(ServletConfig config) throws ServletException {
@@ -34,24 +35,22 @@ public class Login extends HttpServlet {
         User us=new User();
        // us.setCluster(cluster);
 
-        String first_name=us.First_name(username);
-        String last_name =us.Last_name(username);
-        String staff_ID =us.Staff_ID(username);
-        String BranchID =us.BranchID(username);
-        String skill =us.Skill(username);
-        int Pos =us.Position(username);
-        
-
         boolean isValid=us.IsValidUser(username, password);
         HttpSession session=request.getSession();
         System.out.println("Session in servlet "+session);
         if (isValid){
+
+            String first_name=us.First_name(username);
+            String last_name =us.Last_name(username);
+            String BranchID =us.BranchID(username);
+            String skill =us.Skill(username);
+            int Pos =us.Position(username);
+
             LoggedIn lg= new LoggedIn();
             lg.setLogedin();
-            lg.setUsername(username);
             lg.setfirst_name(first_name);
             lg.setlast_name(last_name);
-            lg.setstaff_ID(staff_ID);
+            lg.setstaff_ID(username);
             lg.setBranch(BranchID);
             lg.setSkills(skill);
             lg.setPosition(Pos);
@@ -83,7 +82,7 @@ public class Login extends HttpServlet {
 	  
             
         }else{
-            response.sendRedirect("/instagrim/login.jsp");
+            response.sendRedirect("index.jsp");
         }
         
     }

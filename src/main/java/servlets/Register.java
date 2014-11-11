@@ -71,11 +71,11 @@ public class Register extends HttpServlet {
         int position = lg.getPosition();
         
         User us=new User();
-        us.RegisterUser(address, password, fname, sname, position);
-
         if(position == 2) {
+            us.RegisterStaff(address, password, fname, sname, position);
             response.sendRedirect("/Manager/Staff");
-        }else {
+        }else if(position == 3){
+            us.RegisterManager(address, password, fname, sname, position);
             response.sendRedirect("/Ceo/Staff");
         }
     }
