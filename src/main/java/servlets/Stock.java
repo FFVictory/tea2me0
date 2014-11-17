@@ -1,6 +1,7 @@
 package servlets;
 
 import jdk.nashorn.internal.ir.RuntimeNode;
+import stores.LoggedIn;
 import stores.Stocks;
 
 import javax.servlet.RequestDispatcher;
@@ -27,10 +28,11 @@ public class Stock extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        if (session.getAttribute("LoggedIn") != null) {
+        LoggedIn lg = ((LoggedIn) session.getAttribute("LoggedIn"));
+        if (lg != null) {
             System.out.println("Logged in Stock user");
             StockModel sm = new StockModel();
-            LinkedList<Stocks> stocks = sm.getStock();
+            LinkedList<Stocks> stocks = sm.getStock(lg.getBranchId());
             session.setAttribute("stocks", stocks);
             RequestDispatcher rd = request.getRequestDispatcher("stock.jsp");
             rd.forward(request, response);

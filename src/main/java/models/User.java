@@ -29,7 +29,7 @@ public class User {
         AeSimpleSHA1 sha1handler = new AeSimpleSHA1();
         String EncodedPassword = null;
         try {
-            EncodedPassword = sha1handler.SHA1(Password);
+            EncodedPassword = AeSimpleSHA1.SHA1(Password);
         } catch (UnsupportedEncodingException | NoSuchAlgorithmException et) {
             System.out.println("Can't check your password");
             return false;
@@ -157,7 +157,7 @@ public class User {
    	return Storedname;
        }
 
-    public String BranchID(String username)
+    public int BranchID(String username)
     {
     	String Storedname = null;
    	 try{
@@ -185,7 +185,7 @@ public class User {
    	                System.out.println(e);
    	            }
    	        }
-   	return Storedname;
+        return Integer.parseInt(Storedname);
        }
     public String Skill(String username)
     {
@@ -254,7 +254,7 @@ public class User {
         AeSimpleSHA1 sha1handler=  new AeSimpleSHA1();
         String EncodedPassword=null;
         try {
-            EncodedPassword= sha1handler.SHA1(Password);
+            EncodedPassword = AeSimpleSHA1.SHA1(Password);
         }catch (UnsupportedEncodingException | NoSuchAlgorithmException et){
             System.out.println("Can't check your password");
             return false;
@@ -294,7 +294,7 @@ public class User {
         AeSimpleSHA1 sha1handler=  new AeSimpleSHA1();
         String EncodedPassword=null;
         try {
-            EncodedPassword= sha1handler.SHA1(Password);
+            EncodedPassword = AeSimpleSHA1.SHA1(Password);
         }catch (UnsupportedEncodingException | NoSuchAlgorithmException et){
             System.out.println("Can't check your password");
             return false;
