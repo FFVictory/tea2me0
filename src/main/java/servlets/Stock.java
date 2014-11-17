@@ -1,7 +1,6 @@
 package servlets;
 
 import stores.Stocks;
-import sun.awt.image.ImageWatched;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
 import java.io.IOException;
 import java.util.LinkedList;
 
@@ -27,7 +25,7 @@ public class Stock extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("Stock progressing");
-        stockModel sm = new stockModel();
+        StockModel sm = new StockModel();
         LinkedList<Stocks> stocks= sm.getStock();
         HttpSession session = request.getSession();
         session.setAttribute("stocks",stocks);

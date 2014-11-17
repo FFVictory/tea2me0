@@ -10,8 +10,8 @@ import java.io.IOException;
 /**
  * Created by Andrew on 07/11/2014.
  */
-@WebServlet(name = "reqStock")
-public class reqStock extends HttpServlet {
+@WebServlet(name = "ReqStock")
+public class ReqStock extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }

@@ -12,7 +12,6 @@ import java.sql.*;
 import lib.AeSimpleSHA1;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import com.mysql.jdbc.Driver;
 import stores.LoggedIn;
 
 public class User {

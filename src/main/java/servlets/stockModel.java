@@ -8,7 +8,7 @@ import java.util.LinkedList;
 /**
  * Created by Andrew on 06/11/2014.
  */
-public class stockModel {
+public class StockModel {
     private Connection connect = null;
     private Statement statement = null;
     private PreparedStatement preparedStatement = null;
@@ -31,8 +31,9 @@ public java.util.LinkedList<Stocks> getStock(){
                 stock.setStockRequested(resultSet.getInt("stockRequested"));
                 stocks.add(stock);
             }
+        } else {
+            System.out.println("SQL did not return any stock from DB\n");
         }
-        else{System.out.println("SQL did not return any stock from DB\n");};
     }
     catch(Exception e)
     {
