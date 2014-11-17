@@ -18,14 +18,14 @@ import javax.servlet.http.Part;
 @WebServlet(urlPatterns = {
         "/" ,"/Index*","/Index/*" , "/Index"
 })
-public class index extends javax.servlet.http.HttpServlet {
+public class Index extends javax.servlet.http.HttpServlet {
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         System.out.println("HUJ1");
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("Index.jsp");
     }
 
     protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         System.out.println("HUJ");
-    response.sendRedirect("index.jsp");
+        response.sendRedirect("Index.jsp");
     }
 }
