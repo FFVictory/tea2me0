@@ -5,7 +5,7 @@ public class LoggedIn {
     String first_name=null;
     String last_name=null;
     String staff_ID=null;
-    String Branch=null;
+    int branchId = 0;
     String skill=null;
     
     int position;
@@ -32,11 +32,13 @@ public class LoggedIn {
     public String getlast_name(){
         return last_name;
     }
-    public void setBranch(String branch){
-        this.Branch=branch;
+
+    public void setBranchId(int branchId) {
+        this.branchId = branchId;
     }
-    public String getBranch(){
-        return Branch;
+
+    public int getBranchId() {
+        return branchId;
     }
     public void setstaff_ID(String ID){
         this.staff_ID=ID;
