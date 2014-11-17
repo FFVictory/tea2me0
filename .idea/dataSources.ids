@@ -145,7 +145,7 @@
       <column name="position" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
       <column name="training" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="address" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
-      <column name="branchId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="branchId" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <column name="password" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="staffId"/>
       <foreign-key name="fk13" columns="branchId" ref-table="branch" ref-schema="" ref-catalog="14ac3d32" ref-columns="branchId" update-rule="3" delete-rule="3" deferrability="2"/>

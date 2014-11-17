@@ -1,5 +1,6 @@
 package servlets;
 
+import jdk.nashorn.internal.ir.RuntimeNode;
 import stores.Stocks;
 
 import javax.servlet.RequestDispatcher;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 import java.io.IOException;
 import java.util.LinkedList;
 
@@ -24,13 +26,18 @@ public class Stock extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("Stock progressing");
-        StockModel sm = new StockModel();
-        LinkedList<Stocks> stocks= sm.getStock();
         HttpSession session = request.getSession();
-        session.setAttribute("stocks",stocks);
-        RequestDispatcher rd = request.getRequestDispatcher("stock.jsp");
-        rd.forward(request,response );
-
+        if (session.getAttribute("LoggedIn") != null) {
+            System.out.println("Logged in Stock user");
+            StockModel sm = new StockModel();
+            LinkedList<Stocks> stocks = sm.getStock();
+            session.setAttribute("stocks", stocks);
+            RequestDispatcher rd = request.getRequestDispatcher("stock.jsp");
+            rd.forward(request, response);
+        } else {
+            System.out.println("No attribute LoggedIn in session @Stock");
+            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+            rd.forward(request, response);
+        }
     }
 }

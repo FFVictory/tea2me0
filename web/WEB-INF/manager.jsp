@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2014/11/15
-  Time: 22:10
+  User: Drew
+  Date: 17/11/2014
+  Time: 18:13
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -11,10 +11,14 @@
     <title></title>
 </head>
 <body>
-
-<button onclick="javascript:window.location.href='msale.jsp'">SALE</button>
-<button onclick="javascript:window.location.href='mstaff.jsp'">STAFF</button>
-<button onclick="javascript:window.location.href='stock.jsp'">STOCK</button>
-
+<form action="/Sale">
+    <input type="submit" name="sale" value="Sale"><br>
+</form>
+<form action="/Staff">
+    <input type="submit" name="staff" value="Staff"><br>
+</form>
+<form action="/Stock">
+    <input type="submit" name="stock" value="Stock"><br>
+</form>
 </body>
 </html>
