@@ -42,7 +42,7 @@ public class Login extends HttpServlet {
 
             String first_name=us.First_name(username);
             String last_name =us.Last_name(username);
-            String BranchID =us.BranchID(username);
+            int BranchID = us.BranchID(username);
             String skill =us.Skill(username);
             int Pos =us.Position(username);
 
@@ -51,7 +51,7 @@ public class Login extends HttpServlet {
             lg.setfirst_name(first_name);
             lg.setlast_name(last_name);
             lg.setstaff_ID(username);
-            lg.setBranch(BranchID);
+            lg.setBranchId(BranchID);
             lg.setSkills(skill);
             lg.setPosition(Pos);
     
