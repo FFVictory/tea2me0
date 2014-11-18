@@ -173,7 +173,6 @@
     <form  method="GET" action="rtSale" >
         <input type="submit" name="sc" value ="Sale Complete" style="width: 120px; height: 30px;">
     </form>
-
     <form  method="POST" action="rtSale" >
         <input type="submit" name="cli" value ="Cancel Last Item" style="width: 120px; height: 30px;">
     </form>

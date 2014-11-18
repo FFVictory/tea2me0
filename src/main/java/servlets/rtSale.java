@@ -52,11 +52,9 @@ public class rtSale extends HttpServlet {
             try {
                 System.out.println("22");
                 rt.RTS(lt.getItem());
-                System.out.println("33");
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-
             RequestDispatcher rd=request.getRequestDispatcher("real-time_sale.jsp");
             rd.forward(request,response);
         }
