@@ -9,7 +9,6 @@ public class List {
 
     private java.util.LinkedList<Item> item = new java.util.LinkedList<>();
 
-
     public List(){
 
     }

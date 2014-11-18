@@ -20,7 +20,6 @@ public class Item {
         this.price = p;
     }
 
-
     public double getPrice() {
         return this.price;
     }
