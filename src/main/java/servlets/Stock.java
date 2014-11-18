@@ -38,7 +38,7 @@ public class Stock extends HttpServlet {
             rd.forward(request, response);
         } else {
             System.out.println("No attribute LoggedIn in session @Stock");
-            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("Index.jsp");
             rd.forward(request, response);
         }
     }

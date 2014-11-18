@@ -67,34 +67,7 @@ public class User {
     }
         
     
-    
-  /*  public ResultSet readDataBase(String query) throws Exception {
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            connect = DriverManager
-                    .getConnection("jdbc:mysql://localhost/feedback?"
-                            + "user=sqluser&password=sqluserpw");
-           // preparedStatement  = connect.prepareStatement(query);
-            
-            //resultSet = preparedStatement.executeQuery(query);
-            
-            //return resultSet;
-            
-          statement = connect.createStatement();
-          return statement.executeQuery(query);
 
-        } catch (Exception e) {
-            throw e;
-        } finally {
-        	resultSet.close();
-        	preparedStatement.close();
-            connect.close();
-        }
-
-    }*/
-    
-
- 
     public String First_name(String username)
     {
     	String Storedname = null;
