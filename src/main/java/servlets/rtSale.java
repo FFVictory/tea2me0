@@ -56,6 +56,7 @@ public class rtSale extends HttpServlet {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+
             RequestDispatcher rd=request.getRequestDispatcher("real-time_sale.jsp");
             rd.forward(request,response);
         }
