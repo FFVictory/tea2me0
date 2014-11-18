@@ -69,10 +69,11 @@ public class Register extends HttpServlet {
         HttpSession session=request.getSession();
         LoggedIn lg = (LoggedIn) session.getAttribute("LoggedIn");
         int position = lg.getPosition();
+        int branch = lg.getBranch();
         
         User us=new User();
         if(position == 2) {
-            us.RegisterStaff(address, password, fname, sname, position);
+            us.RegisterStaff(address, password, fname, sname, position,branch);
             response.sendRedirect("/Manager/Staff");
         }else if(position == 3){
             us.RegisterManager(address, password, fname, sname, position);

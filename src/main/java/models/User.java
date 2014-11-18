@@ -132,7 +132,7 @@ public class User {
 
     public int BranchID(String username)
     {
-    	String Storedname = null;
+    	int Storedname =0;
    	 try{
          Class.forName("com.mysql.jdbc.Driver");
    	        connect = DriverManager
@@ -144,7 +144,7 @@ public class User {
    	       
    	        	while (resultSet.next()){  ///////////////is while right?
    	               
-   	        		Storedname = resultSet.getString("branchId");
+   	        		Storedname = resultSet.getInt("branchId");
    	            }
    	        	
    	        }catch (Exception ex) {
@@ -223,7 +223,7 @@ public class User {
       	
           }
 
-    public boolean RegisterStaff(String address, String Password, String fname, String sname, int user){
+    public boolean RegisterStaff(String address, String Password, String fname, String sname, int user, int branch){
         AeSimpleSHA1 sha1handler=  new AeSimpleSHA1();
         String EncodedPassword=null;
         try {
@@ -235,9 +235,11 @@ public class User {
 
         try{
             Class.forName("com.mysql.jdbc.Driver");
-        connect = DriverManager.getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306?"
-                +"user=14ac3u32&password=cab123");
-        preparedStatement  = connect.prepareStatement("insert into staffmember (address,password,firstName,lastName,position,salary);" + " Values(?,?,?,?,?,?);");
+            connect = DriverManager.getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306?"
+                            +"user=14ac3u32&password=cab123");
+        preparedStatement  = connect.prepareStatement("INSERT INTO 14ac3d32.staffmember"
+                + "(address, password, firstName, lastName, position, salary, staffId, branchId)  VALUES"
+                + "(?,?,?,?,?,?,?,?);");
 
         preparedStatement.setString(1,address);
         preparedStatement.setString(2,EncodedPassword);
@@ -245,15 +247,16 @@ public class User {
         preparedStatement.setString(4,sname);
         preparedStatement.setInt(5, 1);
         preparedStatement.setInt(6, 15000);
+        preparedStatement.setInt(7, 2222);
+        preparedStatement.setInt(8, branch);
 
 
-        resultSet = preparedStatement.executeQuery();
+        preparedStatement.executeUpdate();
 
         }catch (Exception ex) {
             System.out.println(ex);
         }finally {
             try {
-                resultSet.close();
                 preparedStatement.close();
                 connect.close();
             } catch (SQLException e) {
@@ -277,7 +280,7 @@ public class User {
             Class.forName("com.mysql.jdbc.Driver");
             connect = DriverManager.getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306?"
                     +"user=14ac3u32&password=cab123");
-            preparedStatement  = connect.prepareStatement("insert into staffmember (address,password,firstName,lastName,position,salary);" + " Values(?,?,?,?,?,?);");
+            preparedStatement  = connect.prepareStatement("insert into 14ac3d32.staffmember (address,password,firstName,lastName,position,salary,staffId);" + " Values(?,?,?,?,?,?,?);");
 
             preparedStatement.setString(1,address);
             preparedStatement.setString(2,EncodedPassword);
@@ -285,15 +288,15 @@ public class User {
             preparedStatement.setString(4,sname);
             preparedStatement.setInt(5, 2);
             preparedStatement.setInt(6, 25000);
+            preparedStatement.setInt(7, 2222);
 
 
-            resultSet = preparedStatement.executeQuery();
+            preparedStatement.executeUpdate();
 
         }catch (Exception ex) {
             System.out.println(ex);
         }finally {
             try {
-                resultSet.close();
                 preparedStatement.close();
                 connect.close();
             } catch (SQLException e) {

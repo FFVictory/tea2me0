@@ -67,81 +67,81 @@
 <div id="nav">
     <div class="nav1">
         <div class="nav11">
-            <form action="/rtSale" method="POST">
+            <form action="rtSale" method="POST">
                 <input type="submit" name="t1" value ="Earl Grey" style="width: 150px; height: 100px;" >
             </form>
         </div>
         <div class="nav11">
-            <form action="rtSale" method="post">
+            <form action="rtSale" method="POST">
                 <input type="submit" name="t1" value ="Breakfast" style="width: 150px; height: 100px;" >
             </form>
         </div>
         <div class="nav11">
-            <form action="rtSale" method="post">
+            <form action="rtSale" method="POST">
                 <input type="submit" name="t1" value ="Fruit" style="width: 150px; height: 100px;">
             </form>
         </div>
         <div class="nav11">
-            <form action="rtSale.java" method="post">
+            <form action="rtSale" method="POST">
                 <input type="submit" name="t1" value ="Standard Green" style="width: 150px; height: 100px;">
             </form>
         </div>
         <div class="nav11">
-            <form action="rtSale.java" method="post">
+            <form action="rtSale" method="POST">
                 <input type="submit" name="t1" value ="Flavoured" style="width: 150px; height: 100px;">
             </form>
         </div>
     </div>
     <div class="nav1">
         <div class="nav11">
-            <form action="rtSale.java" method="post">
+            <form action="rtSale" method="POST">
                 <input type="submit" name="t1" value ="White" style="width: 150px; height: 100px;">
             </form>
         </div>
         <div class="nav11">
-            <form  action="rtSale.java" method="post">
+            <form  action="rtSale" method="POST">
                 <input type="submit" name="t1" value ="Yellow" style="width: 150px; height: 100px;">
             </form>
         </div>
         <div class="nav11">
-            <form  action="rtSale.java" method="post">
+            <form  action="rtSale" method="POST">
                 <input type="submit" name="t1" value ="Dark" style="width: 150px; height: 100px;">
             </form>
         </div>
         <div class="nav11">
-            <form  action="rtSale.java" method="post">
+            <form  action="rtSale" method="POST">
                 <input type="submit" name="t1" value ="Black" style="width: 150px; height: 100px;">
             </form>
         </div>
         <div class="nav11">
-            <form  action="rtSale.java" method="post">
+            <form  action="rtSale" method="POST">
                 <input type="submit" name="t1" value ="Herb" style="width: 150px; height: 100px;">
             </form>
         </div>
     </div>
     <div class="nav1">
         <div class="nav11">
-            <form  action="rtSale.java" method="post">
+            <form  action="rtSale" method="POST">
                 <input type="submit" name="t1" value ="Herb" style="width: 150px; height: 100px;">
             </form>
         </div>
         <div class="nav11">
-            <form  action="rtSale.java" method="post">
+            <form  action="rtSale" method="POST">
                 <input type="submit" name="t1" value ="Oolong" style="width: 150px; height: 100px;">
             </form>
         </div>
         <div class="nav11">
-            <form  action="rtSale.java" method="post">
+            <form  action="rtSale" method="POST">
                 <input type="submit" name="t1" value ="Muffin" style="width: 150px; height: 100px;">
             </form>
         </div>
         <div class="nav11">
-            <form  action="rtSale.java" method="post">
+            <form  action="rtSale" method="POST">
                 <input type="submit" name="t1" value ="Biscuit" style="width: 150px; height: 100px;">
             </form>
         </div>
         <div class="nav11">
-            <form action="rtSale.java" method="post">
+            <form action="rtSale" method="POST">
                 <input type="submit" name="t1" value ="Cookie" style="width: 150px; height: 100px;">
             </form>
         </div>
@@ -166,10 +166,10 @@ if(tm != null){
         <%=t.getName()+"               "+t.getPrice() %>
     <% }%>
     <%="Total=£"+total%>
-    <form  action="tea2me1/servlets/rtSale.java" method="get">
+    <form  action="tea2me1/servlets/rtSale.java" method="GET">
         <input type="submit" name="sc" value ="Sale Complete" style="width: 80px; height: 30px;">
     </form>
-    <form  action="tea2me1/servlets/rtSale.java" method="post">
+    <form  action="tea2me1/servlets/rtSale.java" method="POST">
         <input type="submit" name="cli" value ="Cancel Last Item" style="width: 80px; height: 30px;">
     </form>
 <% } %>

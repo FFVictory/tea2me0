@@ -49,7 +49,7 @@ public class rtSale extends HttpServlet {
             e.printStackTrace();
         }
         }
-    }
+}
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -117,9 +117,9 @@ public class rtSale extends HttpServlet {
 
        // session.setAttribute("price", prc);
 
-          RequestDispatcher rd=request.getRequestDispatcher("real-time_sale.jsp");
+          RequestDispatcher rd=request.getRequestDispatcher("rtSale.jsp");
            rd.forward(request,response);
-           // response.sendRedirect("real-time_sale.jsp");
+           // response.sendRedirect("rtSale.jsp");
         }
 
 
