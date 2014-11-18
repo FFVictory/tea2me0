@@ -69,7 +69,7 @@ public class Register extends HttpServlet {
         HttpSession session=request.getSession();
         LoggedIn lg = (LoggedIn) session.getAttribute("LoggedIn");
         int position = lg.getPosition();
-        int branch = lg.getBranch();
+        int branch = lg.getBranchId();
         
         User us=new User();
         if(position == 2) {

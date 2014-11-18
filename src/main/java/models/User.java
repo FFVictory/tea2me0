@@ -158,7 +158,7 @@ public class User {
    	                System.out.println(e);
    	            }
    	        }
-        return Integer.parseInt(Storedname);
+        return Storedname;
        }
     public String Skill(String username)
     {
