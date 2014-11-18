@@ -64,6 +64,7 @@ public class rtSale extends HttpServlet {
             throws ServletException, IOException {
         String n=request.getParameter("t1");
         List l=new List();
+
         HttpSession session=request.getSession();
         if (session.getAttribute("list")!=null)
             l=(List) session.getAttribute("list");

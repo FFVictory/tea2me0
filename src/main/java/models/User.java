@@ -273,7 +273,6 @@ public class User {
         preparedStatement.setInt(5, 1);
         preparedStatement.setInt(6, 15000);
 
-
         resultSet = preparedStatement.executeQuery();
 
         }catch (Exception ex) {

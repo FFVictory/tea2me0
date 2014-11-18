@@ -31,6 +31,7 @@ public class RTSale {
                 iterator = t.iterator();
 
                 Class.forName("com.mysql.jdbc.Driver");
+                
                 connect = DriverManager
                         .getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306" + "user=14ac3u32 & password=cab123");
                 System.out.println("1");
