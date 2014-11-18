@@ -8,6 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="models.RTSale" %>
 <%@ page import="javax.servlet.http.HttpServletRequest" %>
+<%@ page import="javax.servlet.http.HttpServletResponse" %>
+<%@ page import="javax.servlet.http.HttpSession" %>
 <%@ page import="java.util.*" %>
 <%@page import="stores.Item" %>
 <%@page import="stores.List" %>
@@ -150,40 +152,29 @@
 </div>
 <div id="section">
     <%
-        double total=0;
-        java.util.LinkedList<Item> tm;
-        System.out.println("6");
-        tm  = (java.util.LinkedList<Item>) session.getAttribute("Items");
-        List lt = new List();
-        tm = lt.getItem();
+        float total=0;
+        List lt=new List();
+        if (session.getAttribute("list")!=null)
+          lt = (List) session.getAttribute("list");
+        java.util.LinkedList<Item> tm = lt.getItem();
         if(tm != null){
             Iterator<Item> iterator;
             iterator = tm.iterator();
-            System.out.println("8");
-           // if(iterator.hasNext())
-               // System.out.println("9");
-           // System.out.println("10");
             while (iterator.hasNext()) {
-                System.out.println("9");
                 Item t = (Item) iterator.next();
-                System.out.println("10");
-                System.out.println(t.getName());
-                System.out.println(t.getPrice());
-
-
                 total+=t.getPrice();
-
     %>
-
-    <%=t.getName()+"                       "+t.getPrice()+"\n" %>
+    <li>
+    <%=t.getName()+t.getPrice() %>
+    </li>
     <% }%>
     <br>
     <%="Total=£"+total%>
     <form  method="GET" action="rtSale" >
-        <input type="submit" name="sc" value ="Sale Complete" style="width: 80px; height: 30px;">
+        <input type="submit" name="sc" value ="Sale Complete" style="width: 120px; height: 30px;">
     </form>
     <form  method="POST" action="rtSale" >
-        <input type="submit" name="cli" value ="Cancel Last Item" style="width: 80px; height: 30px;">
+        <input type="submit" name="cli" value ="Cancel Last Item" style="width: 120px; height: 30px;">
     </form>
     <% } %>
 </div>

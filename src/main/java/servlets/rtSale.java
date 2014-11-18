@@ -11,9 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 import javax.servlet.http.HttpSession;
+import java.util.Iterator;
 import stores.Item;
 import stores.List;
 import java.sql.*;
+import java.util.*;
 import java.util.LinkedList;
 
 /**
@@ -39,31 +41,34 @@ public class rtSale extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if(request.getParameter("cs")!=null) {
+        if(request.getParameter("sc")!=null) {
             HttpSession session=request.getSession();
-            java.util.LinkedList<Item> tm ;
-            tm = (java.util.LinkedList<Item>) session.getAttribute("Items");
+            List lt=new List() ;
+           //
+            lt=(List) session.getAttribute("list");
+           // lt = (List) session.getAttribute("list");
             RTSale rt=new RTSale();
+            System.out.println("11");
             try {
-                rt.RTS(tm);
+                System.out.println("22");
+                rt.RTS(lt.getItem());
+                System.out.println("33");
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+            RequestDispatcher rd=request.getRequestDispatcher("real-time_sale.jsp");
+            rd.forward(request,response);
         }
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String n=request.getParameter("t1");
-        System.out.println(n);
-        List l = new List();
-        //java.util.LinkedList<Item> item;
-        //item = new java.util.LinkedList<>();
-        System.out.println("1");
-       // Item itm= new Item();
-        System.out.println("2");
+        List l=new List();
+        HttpSession session=request.getSession();
+        if (session.getAttribute("list")!=null)
+            l=(List) session.getAttribute("list");
         if(n!=null){
-            System.out.println("3");
             Item itm= new Item();
             double prc;
             switch(n)
@@ -101,45 +106,34 @@ public class rtSale extends HttpServlet {
                 default: prc= 0;
                     break;
             }
-
-
-            Date t = new java.sql.Date(System.currentTimeMillis());
-            System.out.println("4");
+            java.sql.Date t = new java.sql.Date(System.currentTimeMillis());
+            session.setAttribute("item", itm);
             itm.setDate(t);
             itm.setPrice(prc);
             itm.setName(n);
-            //item.add(itm);
-            System.out.println(itm.getName());
             l.setItem(itm);
-            //HttpSession session=request.getSession();
-            //session.setAttribute("Items", item);
+            session.setAttribute("list", l);
         }
         String cancel=request.getParameter("cli");
         if(cancel!=null){
-            l.deleteItem();
+            List i = new List();
+            if (session.getAttribute("list")!=null)
+                i=(List) session.getAttribute("list");
+            i=(List) session.getAttribute("list");
+            (i.getItem()).remove(i.getItem().getLast());
+            session.setAttribute("list", i);
+
         }
-
-
-
-
-
-
-        // session.setAttribute("price", prc);
-
         RequestDispatcher rd=request.getRequestDispatcher("real-time_sale.jsp");
         rd.forward(request,response);
-        // response.sendRedirect("real-time_sale.jsp");
     }
-
-
-
     /**
      * Returns a short description of the servlet.
      *
      * @return a String containing servlet description
      */
     @Override
-    public String getServletInfo() {
+   public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
 

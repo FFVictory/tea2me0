@@ -20,32 +20,39 @@ import java.util.*;
 public class RTSale {
     private static Connection connect = null;
     private PreparedStatement preparedStatement = null;
-    private ResultSet resultSet = null;
+   // private ResultSet resultSet = null;
+    public RTSale(){
 
+    }
     public void RTS(java.util.LinkedList<Item> t) throws SQLException {
+        System.out.println("0");
             try {
-
                 Iterator<Item> iterator;
                 iterator = t.iterator();
-
+                System.out.println("10");
+                Class.forName("com.mysql.jdbc.Driver");
+                connect = DriverManager
+                        .getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306" + "user=14ac3u32 & password=cab123");
+                System.out.println("1");
+                int i=1;
                 while (iterator.hasNext()) {
 
+                    System.out.println(i++);
                     Item tm = (Item) iterator.next();
-                    connect = DriverManager
-                            .getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306" + "user=14ac3u32 & password=cab123");
                     preparedStatement = connect.prepareStatement("insert into 14ac3d32.order values(?,?,?,?)");
-                    preparedStatement.setInt(1, 1234);/////////////???????????????
+                    preparedStatement.setInt(1, i);
                     preparedStatement.setDate(2, tm.getDate());
-                    preparedStatement.setDouble(3, tm.getPrice());
+                    preparedStatement.setInt(3, (int) tm.getPrice());
                     preparedStatement.setString(4, tm.getName());
 
                     preparedStatement.executeUpdate();
+                    System.out.println(preparedStatement.executeUpdate());
                 }
-            }catch (SQLException e) {
-                    e.printStackTrace();
-                }finally {
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } finally {
                     try {
-                        resultSet.close();
+                       // resultSet.close();
                         preparedStatement.close();
                         connect.close();
                     } catch (SQLException e) {
