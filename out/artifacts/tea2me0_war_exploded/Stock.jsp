@@ -48,8 +48,8 @@
         }
             else{
             %>
-            <form action="/Stock"  method="post">
-            <button type="submit"onclick="alert('Hello world!')" value="">Request Stock!</button>
+            <form action="/ReqStock"  method="post">
+            <input type="submit" name="teaType" value="<%=stock.getTeaType()%>"  >Request
             </form>
             <%
         }

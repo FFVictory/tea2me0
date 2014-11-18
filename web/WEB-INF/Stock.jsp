@@ -36,7 +36,7 @@
             Iterator<Stocks> iterator;
             iterator = stocks.iterator();
             while (iterator.hasNext()){
-                stock = (Stocks) iterator.next();
+                stock = iterator.next();
     %>
     <tr>
         <td><%=stock.getBranchId()%></td>
@@ -48,8 +48,8 @@
         }
             else{
             %>
-            <form action="/Stock"  method="post">
-            <button type="submit"onclick="alert('Hello world!')" value="">Request Stock!</button>
+            <form action="/ReqStock" method="post">
+                <input type="submit" name="teaType" value="<%=stock.getTeaType()%>">Request
             </form>
             <%
         }
