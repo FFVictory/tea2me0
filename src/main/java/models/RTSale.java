@@ -16,6 +16,7 @@ import java.util.*;
 /**
  * Created by Kunjia on 2014/11/6.
  */
+
 public class RTSale {
     private static Connection connect = null;
     private PreparedStatement preparedStatement = null;

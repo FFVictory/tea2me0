@@ -10,6 +10,7 @@
 <%@ page import="javax.servlet.http.HttpServletRequest" %>
 <%@ page import="java.util.*" %>
 <%@page import="stores.Item" %>
+<%@page import="stores.List" %>
 
 <html>
 <head>
@@ -67,112 +68,124 @@
 <div id="nav">
     <div class="nav1">
         <div class="nav11">
-            <form action="/rtSale" method="POST">
+            <form  method="POST" action="rtSale" >
                 <input type="submit" name="t1" value ="Earl Grey" style="width: 150px; height: 100px;" >
             </form>
         </div>
         <div class="nav11">
-            <form action="rtSale" method="post">
+            <form  method="POST" action="rtSale" >
                 <input type="submit" name="t1" value ="Breakfast" style="width: 150px; height: 100px;" >
             </form>
         </div>
         <div class="nav11">
-            <form action="rtSale" method="post">
+            <form  method="POST" action="rtSale" >
                 <input type="submit" name="t1" value ="Fruit" style="width: 150px; height: 100px;">
             </form>
         </div>
         <div class="nav11">
-            <form action="rtSale.java" method="post">
+            <form  method="POST" action="rtSale" >
                 <input type="submit" name="t1" value ="Standard Green" style="width: 150px; height: 100px;">
             </form>
         </div>
         <div class="nav11">
-            <form action="rtSale.java" method="post">
+            <form  method="POST" action="rtSale" >
                 <input type="submit" name="t1" value ="Flavoured" style="width: 150px; height: 100px;">
             </form>
         </div>
     </div>
     <div class="nav1">
         <div class="nav11">
-            <form action="rtSale.java" method="post">
+            <form  method="POST" action="rtSale" >
                 <input type="submit" name="t1" value ="White" style="width: 150px; height: 100px;">
             </form>
         </div>
         <div class="nav11">
-            <form  action="rtSale.java" method="post">
+            <form  method="POST" action="rtSale" >
                 <input type="submit" name="t1" value ="Yellow" style="width: 150px; height: 100px;">
             </form>
         </div>
         <div class="nav11">
-            <form  action="rtSale.java" method="post">
+            <form  method="POST" action="rtSale" >
                 <input type="submit" name="t1" value ="Dark" style="width: 150px; height: 100px;">
             </form>
         </div>
         <div class="nav11">
-            <form  action="rtSale.java" method="post">
+            <form  method="POST" action="rtSale" >
                 <input type="submit" name="t1" value ="Black" style="width: 150px; height: 100px;">
             </form>
         </div>
         <div class="nav11">
-            <form  action="rtSale.java" method="post">
+            <form  method="POST" action="rtSale" >
                 <input type="submit" name="t1" value ="Herb" style="width: 150px; height: 100px;">
             </form>
         </div>
     </div>
     <div class="nav1">
         <div class="nav11">
-            <form  action="rtSale.java" method="post">
-                <input type="submit" name="t1" value ="Herb" style="width: 150px; height: 100px;">
+            <form  method="POST" action="rtSale" >
+                <input type="submit" name="t1" value ="West Lake" style="width: 150px; height: 100px;">
             </form>
         </div>
         <div class="nav11">
-            <form  action="rtSale.java" method="post">
+            <form  method="POST" action="rtSale" >
                 <input type="submit" name="t1" value ="Oolong" style="width: 150px; height: 100px;">
             </form>
         </div>
         <div class="nav11">
-            <form  action="rtSale.java" method="post">
+            <form  method="POST" action="rtSale" >
                 <input type="submit" name="t1" value ="Muffin" style="width: 150px; height: 100px;">
             </form>
         </div>
         <div class="nav11">
-            <form  action="rtSale.java" method="post">
+            <form  method="POST" action="rtSale" >
                 <input type="submit" name="t1" value ="Biscuit" style="width: 150px; height: 100px;">
             </form>
         </div>
         <div class="nav11">
-            <form action="rtSale.java" method="post">
+            <form  method="POST" action="rtSale" >
                 <input type="submit" name="t1" value ="Cookie" style="width: 150px; height: 100px;">
             </form>
         </div>
     </div>
 </div>
 <div id="section">
-<%
-    double total=0;
-    java.util.LinkedList<Item> tm;
-          tm  = (java.util.LinkedList<Item>) session.getAttribute("Items");
-if(tm != null){
-    Iterator<Item> iterator;
-    iterator = tm.iterator();
+    <%
+        double total=0;
+        java.util.LinkedList<Item> tm;
+        System.out.println("6");
+        tm  = (java.util.LinkedList<Item>) session.getAttribute("Items");
+        List lt = new List();
+        tm = lt.getItem();
+        if(tm != null){
+            Iterator<Item> iterator;
+            iterator = tm.iterator();
+            System.out.println("8");
+           // if(iterator.hasNext())
+               // System.out.println("9");
+           // System.out.println("10");
+            while (iterator.hasNext()) {
+                System.out.println("9");
+                Item t = (Item) iterator.next();
+                System.out.println("10");
+                System.out.println(t.getName());
+                System.out.println(t.getPrice());
 
-    while (iterator.hasNext()) {
 
-    Item t = (Item) iterator.next();
-        total+=t.getPrice();
+                total+=t.getPrice();
 
     %>
 
-        <%=t.getName()+"               "+t.getPrice() %>
+    <%=t.getName()+"                       "+t.getPrice()+"\n" %>
     <% }%>
+    <br>
     <%="Total=£"+total%>
-    <form  action="tea2me1/servlets/rtSale.java" method="get">
+    <form  method="GET" action="rtSale" >
         <input type="submit" name="sc" value ="Sale Complete" style="width: 80px; height: 30px;">
     </form>
-    <form  action="tea2me1/servlets/rtSale.java" method="post">
+    <form  method="POST" action="rtSale" >
         <input type="submit" name="cli" value ="Cancel Last Item" style="width: 80px; height: 30px;">
     </form>
-<% } %>
+    <% } %>
 </div>
 </body>
 </html>
