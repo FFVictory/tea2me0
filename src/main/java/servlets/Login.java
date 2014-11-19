@@ -82,7 +82,7 @@ public class Login extends HttpServlet {
 	  
             
         }else{
-            response.sendRedirect("Index.jsp");
+            response.sendRedirect("Index");
         }
         
     }

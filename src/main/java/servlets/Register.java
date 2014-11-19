@@ -73,11 +73,19 @@ public class Register extends HttpServlet {
         
         User us=new User();
         if(position == 2) {
-            us.RegisterStaff(address, password, fname, sname, position);
-            response.sendRedirect("/Manager/Staff");
+            if(us.RegisterStaff(address, password, fname, sname, position) == true){
+                response.sendRedirect("/Manager/Staff");
+            }else{
+                response.sendRedirect("/Register");
+                //display "failed to make connection to database" error
+            }
         }else if(position == 3){
-            us.RegisterManager(address, password, fname, sname, position);
-            response.sendRedirect("/Ceo/Staff");
+            if(us.RegisterManager(address, password, fname, sname, position) == true) {
+                response.sendRedirect("/Ceo/Staff");
+            }else{
+                response.sendRedirect("/Register");
+                //display "failed to make connection to database" error
+            }
         }
     }
 

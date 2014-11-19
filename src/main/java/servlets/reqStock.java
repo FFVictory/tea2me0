@@ -1,5 +1,6 @@
 package servlets;
 
+import models.StockModel;
 import stores.LoggedIn;
 
 import javax.servlet.RequestDispatcher;

@@ -1,4 +1,4 @@
-package servlets;
+package models;
 
 import stores.Stocks;
 

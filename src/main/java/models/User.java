@@ -28,12 +28,7 @@ public class User {
 
         AeSimpleSHA1 sha1handler = new AeSimpleSHA1();
         String EncodedPassword = null;
-        try {
-            EncodedPassword = sha1handler.SHA1(Password);
-        } catch (UnsupportedEncodingException | NoSuchAlgorithmException et) {
-            System.out.println("Can't check your password");
-            return false;
-        }
+        boolean dbCon = true;
         try {
             Class.forName("com.mysql.jdbc.Driver");
             connect = DriverManager.getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306?"
@@ -41,6 +36,13 @@ public class User {
             preparedStatement = connect.prepareStatement("select password from 14ac3d32.staffmember where staffId = ?;");
             preparedStatement.setString(1, username);
             resultSet = preparedStatement.executeQuery();
+
+            try {
+                EncodedPassword = sha1handler.SHA1(Password);
+            } catch (UnsupportedEncodingException | NoSuchAlgorithmException et) {
+                System.out.println("Can't check your password");
+                return false;
+            }
 
             while (resultSet.next()) {
 
@@ -53,11 +55,16 @@ public class User {
             }
         } catch (Exception ex) {
             System.out.println(ex);
+            dbCon = false;
+            return false;
+
         } finally {
                 try {
-                resultSet.close();
-                preparedStatement.close();
-                connect.close();
+                    if(dbCon) {
+                        resultSet.close();
+                        preparedStatement.close();
+                        connect.close();
+                    }
             } catch (SQLException e) {
                 System.out.println(e);
             }
@@ -255,6 +262,7 @@ public class User {
     public boolean RegisterStaff(String address, String Password, String fname, String sname, int user){
         AeSimpleSHA1 sha1handler=  new AeSimpleSHA1();
         String EncodedPassword=null;
+        boolean dbCon = true;
         try {
             EncodedPassword= sha1handler.SHA1(Password);
         }catch (UnsupportedEncodingException | NoSuchAlgorithmException et){
@@ -279,11 +287,15 @@ public class User {
 
         }catch (Exception ex) {
             System.out.println(ex);
+            dbCon = false;
+            return false;
         }finally {
             try {
-                resultSet.close();
-                preparedStatement.close();
-                connect.close();
+                if(dbCon) {
+                    resultSet.close();
+                    preparedStatement.close();
+                    connect.close();
+                }
             } catch (SQLException e) {
                 System.out.println(e);
             }
@@ -294,6 +306,7 @@ public class User {
     public boolean RegisterManager(String address, String Password, String fname, String sname, int user){
         AeSimpleSHA1 sha1handler=  new AeSimpleSHA1();
         String EncodedPassword=null;
+        boolean dbCon = true;
         try {
             EncodedPassword= sha1handler.SHA1(Password);
         }catch (UnsupportedEncodingException | NoSuchAlgorithmException et){
@@ -319,11 +332,15 @@ public class User {
 
         }catch (Exception ex) {
             System.out.println(ex);
+            dbCon = false;
+            return false;
         }finally {
             try {
-                resultSet.close();
-                preparedStatement.close();
-                connect.close();
+                if(dbCon) {
+                    resultSet.close();
+                    preparedStatement.close();
+                    connect.close();
+                }
             } catch (SQLException e) {
                 System.out.println(e);
             }

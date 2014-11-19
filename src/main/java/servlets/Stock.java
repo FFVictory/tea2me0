@@ -1,6 +1,6 @@
 package servlets;
 
-import jdk.nashorn.internal.ir.RuntimeNode;
+import models.StockModel;
 import stores.LoggedIn;
 import stores.Stocks;
 
@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
 import java.io.IOException;
 import java.util.LinkedList;
 
