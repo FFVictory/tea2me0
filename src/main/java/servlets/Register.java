@@ -46,7 +46,7 @@ public class Register extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.sendRedirect("register.jsp");
+        response.sendRedirect("Register.jsp");
     }
 
     /**
@@ -73,15 +73,17 @@ public class Register extends HttpServlet {
 
         
         User us=new User();
+        int staffID = us.newStaffId();
+
         if(position == 2) {
-            if(us.RegisterStaff(address, password, fname, sname, position, branchID) == true){
+            if(us.RegisterStaff(address, password, fname, sname, position, branchID, staffID) == true){
                 response.sendRedirect("/Manager/Staff");
             }else{
                 response.sendRedirect("/Register");
             }
         }else if(position == 3){
             int managerBranch = Integer.parseInt(request.getParameter("managerBranch"));
-            if(us.RegisterManager(address, password, fname, sname, position, managerBranch) == true) {
+            if(us.RegisterManager(address, password, fname, sname, position, managerBranch, staffID) == true) {
                 response.sendRedirect("/Ceo/Staff");
             }else{
                 response.sendRedirect("/Register");
