@@ -11,6 +11,7 @@ public class BranchStore {
     int advertismentCosts;
     int leaseCost;
     int revenue;
+    int cityId;
 
     public int getBranchId() {
         return branchId;
@@ -76,6 +77,5 @@ public class BranchStore {
         this.cityId = cityId;
     }
 
-    int cityId;
 
 }
