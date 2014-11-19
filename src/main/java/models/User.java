@@ -29,7 +29,7 @@ public class User {
         AeSimpleSHA1 sha1handler = new AeSimpleSHA1();
         String EncodedPassword = null;
         try {
-            EncodedPassword = AeSimpleSHA1.SHA1(Password);
+            EncodedPassword = sha1handler.SHA1(Password);
         } catch (UnsupportedEncodingException | NoSuchAlgorithmException et) {
             System.out.println("Can't check your password");
             return false;
@@ -67,7 +67,34 @@ public class User {
     }
         
     
+    
+  /*  public ResultSet readDataBase(String query) throws Exception {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            connect = DriverManager
+                    .getConnection("jdbc:mysql://localhost/feedback?"
+                            + "user=sqluser&password=sqluserpw");
+           // preparedStatement  = connect.prepareStatement(query);
+            
+            //resultSet = preparedStatement.executeQuery(query);
+            
+            //return resultSet;
+            
+          statement = connect.createStatement();
+          return statement.executeQuery(query);
 
+        } catch (Exception e) {
+            throw e;
+        } finally {
+        	resultSet.close();
+        	preparedStatement.close();
+            connect.close();
+        }
+
+    }*/
+    
+
+ 
     public String First_name(String username)
     {
     	String Storedname = null;
@@ -130,9 +157,9 @@ public class User {
    	return Storedname;
        }
 
-    public int BranchID(String username)
+    public String BranchID(String username)
     {
-    	int Storedname =0;
+    	String Storedname = null;
    	 try{
          Class.forName("com.mysql.jdbc.Driver");
    	        connect = DriverManager
@@ -144,7 +171,7 @@ public class User {
    	       
    	        	while (resultSet.next()){  ///////////////is while right?
    	               
-   	        		Storedname = resultSet.getInt("branchId");
+   	        		Storedname = resultSet.getString("branchId");
    	            }
    	        	
    	        }catch (Exception ex) {
@@ -158,7 +185,7 @@ public class User {
    	                System.out.println(e);
    	            }
    	        }
-        return Storedname;
+   	return Storedname;
        }
     public String Skill(String username)
     {
@@ -223,11 +250,11 @@ public class User {
       	
           }
 
-    public boolean RegisterStaff(String address, String Password, String fname, String sname, int user, int branch){
+    public boolean RegisterStaff(String address, String Password, String fname, String sname, int user){
         AeSimpleSHA1 sha1handler=  new AeSimpleSHA1();
         String EncodedPassword=null;
         try {
-            EncodedPassword = AeSimpleSHA1.SHA1(Password);
+            EncodedPassword= sha1handler.SHA1(Password);
         }catch (UnsupportedEncodingException | NoSuchAlgorithmException et){
             System.out.println("Can't check your password");
             return false;
@@ -235,11 +262,9 @@ public class User {
 
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            connect = DriverManager.getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306?"
-                            +"user=14ac3u32&password=cab123");
-        preparedStatement  = connect.prepareStatement("INSERT INTO 14ac3d32.staffmember"
-                + "(address, password, firstName, lastName, position, salary, staffId, branchId)  VALUES"
-                + "(?,?,?,?,?,?,?,?);");
+        connect = DriverManager.getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306?"
+                +"user=14ac3u32&password=cab123");
+        preparedStatement  = connect.prepareStatement("insert into staffmember (address,password,firstName,lastName,position,salary);" + " Values(?,?,?,?,?,?);");
 
         preparedStatement.setString(1,address);
         preparedStatement.setString(2,EncodedPassword);
@@ -247,16 +272,14 @@ public class User {
         preparedStatement.setString(4,sname);
         preparedStatement.setInt(5, 1);
         preparedStatement.setInt(6, 15000);
-        preparedStatement.setInt(7, 2222);
-        preparedStatement.setInt(8, branch);
 
-
-        preparedStatement.executeUpdate();
+        resultSet = preparedStatement.executeQuery();
 
         }catch (Exception ex) {
             System.out.println(ex);
         }finally {
             try {
+                resultSet.close();
                 preparedStatement.close();
                 connect.close();
             } catch (SQLException e) {
@@ -270,7 +293,7 @@ public class User {
         AeSimpleSHA1 sha1handler=  new AeSimpleSHA1();
         String EncodedPassword=null;
         try {
-            EncodedPassword = AeSimpleSHA1.SHA1(Password);
+            EncodedPassword= sha1handler.SHA1(Password);
         }catch (UnsupportedEncodingException | NoSuchAlgorithmException et){
             System.out.println("Can't check your password");
             return false;
@@ -280,7 +303,7 @@ public class User {
             Class.forName("com.mysql.jdbc.Driver");
             connect = DriverManager.getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306?"
                     +"user=14ac3u32&password=cab123");
-            preparedStatement  = connect.prepareStatement("insert into 14ac3d32.staffmember (address,password,firstName,lastName,position,salary,staffId);" + " Values(?,?,?,?,?,?,?);");
+            preparedStatement  = connect.prepareStatement("insert into staffmember (address,password,firstName,lastName,position,salary);" + " Values(?,?,?,?,?,?);");
 
             preparedStatement.setString(1,address);
             preparedStatement.setString(2,EncodedPassword);
@@ -288,15 +311,15 @@ public class User {
             preparedStatement.setString(4,sname);
             preparedStatement.setInt(5, 2);
             preparedStatement.setInt(6, 25000);
-            preparedStatement.setInt(7, 2222);
 
 
-            preparedStatement.executeUpdate();
+            resultSet = preparedStatement.executeQuery();
 
         }catch (Exception ex) {
             System.out.println(ex);
         }finally {
             try {
+                resultSet.close();
                 preparedStatement.close();
                 connect.close();
             } catch (SQLException e) {
