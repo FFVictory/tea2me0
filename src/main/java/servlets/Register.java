@@ -46,7 +46,7 @@ public class Register extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        response.sendRedirect("register.jsp");
     }
 
     /**
@@ -69,22 +69,22 @@ public class Register extends HttpServlet {
         HttpSession session=request.getSession();
         LoggedIn lg = (LoggedIn) session.getAttribute("LoggedIn");
         int position = lg.getPosition();
-        int branch = lg.getBranchId();
+        int branchID = lg.getBranchId();
+
         
         User us=new User();
         if(position == 2) {
-            if(us.RegisterStaff(address, password, fname, sname, position) == true){
+            if(us.RegisterStaff(address, password, fname, sname, position, branchID) == true){
                 response.sendRedirect("/Manager/Staff");
             }else{
                 response.sendRedirect("/Register");
-                //display "failed to make connection to database" error
             }
         }else if(position == 3){
-            if(us.RegisterManager(address, password, fname, sname, position) == true) {
+            int managerBranch = Integer.parseInt(request.getParameter("managerBranch"));
+            if(us.RegisterManager(address, password, fname, sname, position, managerBranch) == true) {
                 response.sendRedirect("/Ceo/Staff");
             }else{
                 response.sendRedirect("/Register");
-                //display "failed to make connection to database" error
             }
         }
     }

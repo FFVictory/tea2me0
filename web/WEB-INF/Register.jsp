@@ -3,8 +3,10 @@
     Created on : 03-Nov-2014, 14:05:22
     Author     : Christopher
 --%>
-
+<%@page import="java.util.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="stores.LoggedIn"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,6 +24,14 @@
                     <li>Surname <input type="text" name="sname"></li>
                     <li>Address <input type="text" name="address"></li>
                     <li>Password <input type="password" name="password"></li>
+                    <%
+                        LoggedIn lg = (LoggedIn) session.getAttribute("LoggedIn");
+                        if(lg.getPosition()== 3){
+                    %>
+                    <li>Manager Branch <input type="text" name="managerBranch"></li>
+                    <%
+                        }
+                    %>
                 </ul>
                 <br/>
                 <input type="submit" value="Register">

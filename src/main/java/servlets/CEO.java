@@ -17,6 +17,6 @@ public class CEO extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.sendRedirect("CEO.jsp0");
+        response.sendRedirect("CEO.jsp");
     }
 }
