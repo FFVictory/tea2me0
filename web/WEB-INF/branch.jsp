@@ -12,14 +12,7 @@
 </head>
 <body>
 <form action="/Search" method="get">
-  Choose your country : <select name="country">
-    <option value="UK">United Kingdom</option>
-    <option value="United States Of America">United States Of America</option>
-    <option value="Finland">Finland</option>
-    <option value="Russia">Russia</option>
-    <option value="Netherlands">Netherlands</option>
-    <option value="China">China</option>
-  </select> <br>
+    <br>
   City : <input type="text" name="city"><br>
   BranchId : <input type="text" name="branchId"><br>
   <input type="submit" value="Search">

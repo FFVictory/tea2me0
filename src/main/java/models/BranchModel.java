@@ -32,10 +32,10 @@ public class BranchModel {
                 ps.setInt(2, cityId);
             } else if ((cityId != 0) && (branchId == 0)) {
                 ps = connect.prepareStatement("Select * from 14ac3d32.branch WHERE branchId=?");
-                ps.setInt(1, branchId);
+                ps.setInt(1, cityId);
             } else if ((cityId == 0) && (branchId != 0)) {
                 ps = connect.prepareStatement("Select * from 14ac3d32.branch WHERE cityId=?");
-                ps.setInt(1, cityId);
+                ps.setInt(1, branchId);
             } else
                 System.out.println("Something sucks at @BranchModel");
 
