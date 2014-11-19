@@ -13,18 +13,18 @@
 </head>
 <body>
 <td>
-<%
+        <%
   BranchStore bs;
   bs = (BranchStore) request.getAttribute("branch");
 
 %>
-Branch ID : <%=bs.getBranchId()%> <br>
-Size : <%=bs.getSize()%> <br>
-Address : <%=bs.getAddress()%> <br>
-Expenditure : <%=bs.getExpenditure()%> <br>
-Advertisment Costs : <%=bs.getAdvertismentCosts()%> <br>
-Lease Costs : <%=bs.getLeaseCost()%> <br>
-Revenue : <%=bs.getRevenue()%> <br>
-City ID : <%=bs.getCityId()%><br>
+    Branch ID : <%=bs.getBranchId()%> <br>
+    Size : <%=bs.getSize()%> <br>
+    Address : <%=bs.getAddress()%> <br>
+    Expenditure : <%=bs.getExpenditure()%> <br>
+    Advertisment Costs : <%=bs.getAdvertismentCosts()%> <br>
+    Lease Costs : <%=bs.getLeaseCost()%> <br>
+    Revenue : <%=bs.getRevenue()%> <br>
+    City ID : <%=bs.getCityId()%><br>
 </body>
 </html>

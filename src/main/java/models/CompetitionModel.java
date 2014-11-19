@@ -1,6 +1,7 @@
 package models;
 
 import stores.Competition;
+import stores.Stocks;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -17,8 +18,8 @@ public class CompetitionModel {
     private PreparedStatement preparedStatement = null;
     private ResultSet resultSet = null;
 
-    public LinkedList findCompetition(String countryName) {
-        LinkedList competitionList = null;
+    public java.util.LinkedList<Competition> findCompetition(String countryName) {
+        LinkedList<Competition> competitionList = new LinkedList<Competition>();
         try {
             Class.forName("com.mysql.jdbc.Driver");
             connect = DriverManager.getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306?"
@@ -27,8 +28,7 @@ public class CompetitionModel {
             statement.setString(1, countryName);
             resultSet = statement.executeQuery();
             while (resultSet.next()) {
-                Competition competition;
-                competition = new Competition();
+                Competition competition = new Competition();
                 competition.setCompetitionId(resultSet.getInt("CompetitionID"));
                 competition.setName(resultSet.getString("name"));
                 competition.setMarketShare(resultSet.getInt("marketShare"));
@@ -38,7 +38,7 @@ public class CompetitionModel {
                 competitionList.add(competition);
             }
         } catch (Exception e) {
-
+            System.out.println("Exception at findCompetition");
         }
         return competitionList;
     }

@@ -11,7 +11,7 @@
     <title></title>
 </head>
 <body>
-    <form action="/Branch" action="post">
+    <form action="/Branch" method="post">
       <input type="submit" name="branch" value="branch" >
     </form>
     <form action="/CEO">
@@ -23,7 +23,7 @@
     <form action="/CEO">
       <input type="submit" name="natural disasters" value="natural disasters">
     </form>
-    <form action="/CEO">
+    <form action="/Competition" method="get">
       <input type="submit" name="competition" value="competition">
     </form>
 

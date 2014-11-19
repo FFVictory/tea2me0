@@ -11,7 +11,7 @@
     <title></title>
 </head>
 <body>
-<form action="/Competition" method="get">
+<form action="/Competition" method="post">
   Choose your country : <select name="country">
   <option value="UK">United Kingdom</option>
   <option value="United States Of America">United States Of America</option>

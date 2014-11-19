@@ -73,7 +73,7 @@ public class Register extends HttpServlet {
         
         User us=new User();
         if(position == 2) {
-            us.RegisterStaff(address, password, fname, sname, position,branch);
+            us.RegisterStaff(address, password, fname, sname, position);
             response.sendRedirect("/Manager/Staff");
         }else if(position == 3){
             us.RegisterManager(address, password, fname, sname, position);

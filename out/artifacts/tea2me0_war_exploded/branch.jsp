@@ -12,7 +12,7 @@
 </head>
 <body>
 <form action="/Search" method="get">
- <br>
+    <br>
   City : <input type="text" name="city"><br>
   BranchId : <input type="text" name="branchId"><br>
   <input type="submit" value="Search">

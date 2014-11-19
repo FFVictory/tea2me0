@@ -157,9 +157,10 @@ public class User {
    	return Storedname;
        }
 
-    public String BranchID(String username)
+    public int BranchID(String username)
     {
     	String Storedname = null;
+        int storedName =0 ;
    	 try{
          Class.forName("com.mysql.jdbc.Driver");
    	        connect = DriverManager
@@ -172,6 +173,7 @@ public class User {
    	        	while (resultSet.next()){  ///////////////is while right?
    	               
    	        		Storedname = resultSet.getString("branchId");
+                    storedName = Integer.parseInt(Storedname);
    	            }
    	        	
    	        }catch (Exception ex) {
@@ -185,7 +187,7 @@ public class User {
    	                System.out.println(e);
    	            }
    	        }
-   	return Storedname;
+   	return storedName;
        }
     public String Skill(String username)
     {

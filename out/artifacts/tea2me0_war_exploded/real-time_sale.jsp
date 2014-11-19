@@ -155,7 +155,7 @@
         float total=0;
         List lt=new List();
         if (session.getAttribute("list")!=null)
-          lt = (List) session.getAttribute("list");
+            lt = (List) session.getAttribute("list");
         java.util.LinkedList<Item> tm = lt.getItem();
         if(tm != null){
             Iterator<Item> iterator;
@@ -165,7 +165,7 @@
                 total+=t.getPrice();
     %>
     <li>
-    <%=t.getName()+t.getPrice() %>
+        <%=t.getName()+t.getPrice() %>
     </li>
     <% }%>
     <br>
@@ -173,6 +173,7 @@
     <form  method="GET" action="rtSale" >
         <input type="submit" name="sc" value ="Sale Complete" style="width: 120px; height: 30px;">
     </form>
+
     <form  method="POST" action="rtSale" >
         <input type="submit" name="cli" value ="Cancel Last Item" style="width: 120px; height: 30px;">
     </form>
