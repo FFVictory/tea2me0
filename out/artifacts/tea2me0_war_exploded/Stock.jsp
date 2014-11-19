@@ -62,6 +62,7 @@
 
 </table>
 <br>
+
 <form action="/Logout" method="post">
     <input type="submit" value="Logout">
 </form>
