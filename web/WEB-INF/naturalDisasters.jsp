@@ -11,10 +11,10 @@
   <title></title>
 </head>
 <body>
-<form action="/Competition" method="post">
+<form action="/NaturalDisasters" method="post">
   Choose your country : <select name="country">
   <option value="UK">United Kingdom</option>
-  <option value="United States Of America">United States Of America</option>
+  <option value="USA">United States Of America</option>
   <option value="Finland">Finland</option>
   <option value="Russia">Russia</option>
   <option value="Netherlands">Netherlands</option>
