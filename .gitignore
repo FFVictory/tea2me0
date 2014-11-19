@@ -4,5 +4,8 @@
 .idea/modules.xml
 .idea/workspace.xml
 .idea\*
+
+/out/*
+/target/*
 *.xml
 *.xml
