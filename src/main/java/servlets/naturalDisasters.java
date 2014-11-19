@@ -11,15 +11,15 @@ import java.io.IOException;
 /**
  * Created by Drew on 19/11/2014.
  */
-@WebServlet(name = "naturalDisasters" ,urlPatterns = "/naturalDisasters")
-public class naturalDisasters extends HttpServlet {
+@WebServlet(name = "naturalDisasters" ,urlPatterns = "/NaturalDisasters")
+public class NaturalDisasters extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
-        RequestDispatcher rd = request.getRequestDispatcher("/natural disasters.jpg");
+        System.out.println("huj @naturalDisasters");
+        RequestDispatcher rd = request.getRequestDispatcher("/naturalDisasters.jsp");
         rd.forward(request,response);
     }
 }

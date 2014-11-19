@@ -79,6 +79,7 @@
       <exported-key name="fk2" table="city" schema="" catalog="14ac3d32" columns="nameOfCountry"/>
       <exported-key name="fk1" table="competition" schema="" catalog="14ac3d32" columns="nameOfCountry"/>
       <exported-key name="fk10" table="geopolitical" schema="" catalog="14ac3d32" columns="nameOfCountry"/>
+      <exported-key name="fk95" table="naturaldisasters" schema="" catalog="14ac3d32" columns="nameOfCountry"/>
     </table>
     <table name="customer" schema="" catalog="14ac3d32" type="TABLE">
       <column name="customerId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
@@ -118,6 +119,15 @@
       <column name="favouriteBranch" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="loyaltyCardID"/>
       <exported-key name="customer_ibfk_1" table="customer" schema="" catalog="14ac3d32" columns="loyaltyCardId"/>
+    </table>
+    <table name="naturaldisasters" schema="" catalog="14ac3d32" type="TABLE">
+      <column name="nameOfCountry" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="tornado" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="tsunami" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="volcanoEruptions" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="flood" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="nameOfCountry"/>
+      <foreign-key name="fk95" columns="nameOfCountry" ref-table="country" ref-schema="" ref-catalog="14ac3d32" ref-columns="nameOfCountry" update-rule="3" delete-rule="3" deferrability="2"/>
     </table>
     <table name="order" schema="" catalog="14ac3d32" type="TABLE">
       <column name="orderId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
