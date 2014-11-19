@@ -14,13 +14,13 @@
     <form action="/Branch" method="post">
       <input type="submit" name="branch" value="branch" >
     </form>
-    <form action="/CEO">
+    <form action="/potentialBranch">
       <input type="submit" name="potential branch" value="potential branch">
     </form>
-    <form action="/CEO">
+    <form action="/geoPolitical">
       <input type="submit" name="geo-political" value="geo-political">
     </form>
-    <form action="/CEO">
+    <form action="/naturalDisasters">
       <input type="submit" name="natural disasters" value="natural disasters">
     </form>
     <form action="/Competition" method="get">
