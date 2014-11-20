@@ -13,8 +13,8 @@
 </head>
 <body>
 <%
-LoggedIn lg = (LoggedIn) session.getAttribute("LoggedIn");
-    if (lg != null) {%>
+//LoggedIn lg = (LoggedIn) session.getAttribute("LoggedIn");
+   // if (lg != null) {%>
 <article>
     <h3>Register a new LoyaltyCard:</h3>
     <form method="POST"  action="AddLoyaltyCard">
@@ -50,9 +50,10 @@ LoggedIn lg = (LoggedIn) session.getAttribute("LoggedIn");
     <ul>
         <li class="footer"><a href="/Tea2Me">Home</a></li>
     </ul>
-    <%}else{%>
-    <li><a href="index.jsp">Login</a></li>
-    <%   }%>
+
 </footer>
+<%//}else{%>
+<li><a href="index.jsp">Login</a></li>
+<% //  }%>
 </body>
 </html>

@@ -13,8 +13,8 @@
     <title>showloyaltycard</title>
 </head>
 <body>
-<%LoggedIn lg = (LoggedIn) session.getAttribute("LoggedIn");
-if (lg != null) {%>
+<%//LoggedIn lg = (LoggedIn) session.getAttribute("LoggedIn");
+//if (lg != null) {%>
 <% Loyaltycard l = new Loyaltycard();
     l=(Loyaltycard)session.getAttribute("Lcard");
 %>
@@ -28,8 +28,8 @@ New Loyalty Card
 <li>DateOfBirth:</li><%=l.getDateOfBirth()%><br>
 <li>BonusPoints:0</li><br>
 <li><button onclick="javascript:window.location.href='addloyaltycard.jsp'">Back</button> </li>
-<%}else{%>
+<%//}else{%>
 <li><a href="index.jsp">Login</a></li>
-<%   }%>
+<% //  }%>
 </body>
 </html>

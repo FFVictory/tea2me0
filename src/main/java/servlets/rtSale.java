@@ -14,10 +14,12 @@ import javax.servlet.http.HttpSession;
 import java.util.Iterator;
 import stores.Item;
 import stores.List;
+import stores.customer;
+
 import java.sql.*;
 import java.util.*;
 import java.util.LinkedList;
-
+import java.util.*;
 /**
  * Created by Kunjia on 2014/11/6.
  */
@@ -41,29 +43,51 @@ public class rtSale extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        System.out.println("doGet @rtSale");
         if(request.getParameter("sc")!=null) {
+            System.out.println("S1");
             HttpSession session=request.getSession();
+            String m = request.getParameter("LCid");
+            System.out.println(m);
+            customer ct = new customer();
+            int cardid=404;
+            if(m != null)
+                cardid = Integer.parseInt(m);
+            ct.setID(cardid);
+            session.setAttribute("ctm", ct);//////////////used?
             List lt=new List() ;
            //
             lt=(List) session.getAttribute("list");
+            System.out.println("S2");
            // lt = (List) session.getAttribute("list");
             RTSale rt=new RTSale();
+            int odrid=rt.getOrderID()+1;
+            System.out.println("orderid="+odrid);
             try {
-                rt.RTS(lt.getItem());
+                System.out.println("S3");
+
+                rt.RTS(lt.getItem(),cardid,odrid);
+                System.out.println("S4");
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+
+            lt.resetItem();
+            session.setAttribute("list", lt);
             RequestDispatcher rd=request.getRequestDispatcher("real-time_sale.jsp");
             rd.forward(request,response);
+            //clear LinkedList
+            //lt.resetItem();
+            //session.setAttribute("list", lt);
         }
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String n=request.getParameter("t1");
-        List l=new List();
-
         HttpSession session=request.getSession();
+        String n = request.getParameter("t1");
+
+        List l=new List();
         if (session.getAttribute("list")!=null)
             l=(List) session.getAttribute("list");
         if(n!=null){
@@ -116,7 +140,7 @@ public class rtSale extends HttpServlet {
         if(cancel!=null){
             List i = new List();
             if (session.getAttribute("list")!=null)
-                i=(List) session.getAttribute("list");
+               // i=(List) session.getAttribute("list");
             i=(List) session.getAttribute("list");
             (i.getItem()).remove(i.getItem().getLast());
             session.setAttribute("list", i);

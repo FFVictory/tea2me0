@@ -21,7 +21,7 @@ public class List {
     }
 
     public void resetItem() {
-        this.item=null;
+        this.item.clear();
     }
 
 

@@ -21,8 +21,8 @@
 </head>
 <body>
 <%
-    LoggedIn lg = (LoggedIn) session.getAttribute("LoggedIn");
-    if (lg != null) {%>
+   // LoggedIn lg = (LoggedIn) session.getAttribute("LoggedIn");
+   // if (lg != null) {%>
 <!-- I need login to pass BranchID to me.-->
 <style>
     #header {
@@ -69,7 +69,9 @@
     }
 </style>
 <div id="header"><h1>TeaToMe</h1></div>
-<div id="footer"><p1>TeaToMe  All rights reserved.</p1></div>
+<div id="footer">
+    <p1>TeaToMe  All rights reserved.</p1>
+</div>
 
 <div id="nav">
     <div class="nav1">
@@ -144,6 +146,7 @@
         </div>
         <div class="nav11">
             <form  method="POST" action="rtSale" >
+
                 <input type="submit" name="t1" value ="Biscuit" style="width: 150px; height: 100px;">
             </form>
         </div>
@@ -178,7 +181,9 @@
         DecimalFormat df = new DecimalFormat("#.##");%>
     <br>
     <%="Total=£"+df.format(total)%>
+    <% System.out.println("jsp");%>
     <form  method="GET" action="rtSale" >
+           LoyaltyCardID : <input type="number" name="LCid">
         <input type="submit" name="sc" value ="Sale Complete" style="width: 120px; height: 30px;">
     </form>
 
@@ -187,8 +192,8 @@
     </form>
     <% } %>
 </div>
-<%}else{%>
+<%//}else{%>
 <li><a href="index.jsp">Login</a></li>
-<%   }%>
+<% //  }%>
 </body>
 </html>

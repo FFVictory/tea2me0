@@ -3,6 +3,7 @@ package servlets;
 import jdk.nashorn.internal.ir.RuntimeNode;
 import models.LCardModel;
 import stores.Loyaltycard;
+import stores.customer;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -63,16 +64,21 @@ public class AddLoyaltyCard extends HttpServlet {
 
         lc.setGender(gender);
 
-       //int b = Integer.parseInt(bp);
+        //int b = Integer.parseInt(bp);
         //lc.setBonusPoint(b);
 
         LCardModel alcd = new LCardModel();
-        int id=alcd.getLoyaltyCardID()+1;
-        alcd.addLoyaltyCard(id,fname, lname, city, career, lc.getDateOfBirth(), gender);
+        int id = alcd.getLoyaltyCardID() + 1;
+        alcd.addLoyaltyCard(id, fname, lname, city, career, lc.getDateOfBirth(), gender);
         lc.setID(id);
         session.setAttribute("Lcard", lc);
         RequestDispatcher rd = request.getRequestDispatcher("/showloyaltycard.jsp");
         rd.forward(request, response);
 
+    }
+
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // get parameter
     }
 }

@@ -8,6 +8,7 @@ public class Item {
     private String name = null;
     private double price = 0;
     private java.sql.Date time = null;
+
     public void setName(String n) {
         this.name = n;
     }
@@ -31,5 +32,7 @@ public class Item {
     public java.sql.Date getDate() {
         return this.time;
     }
+
+
 }
 
