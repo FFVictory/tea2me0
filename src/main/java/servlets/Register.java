@@ -62,31 +62,36 @@ public class Register extends HttpServlet {
         
         String address=request.getParameter("address");
         String password=request.getParameter("password");
+        String cPassword=request.getParameter("confirmPassword");
         String fname=request.getParameter("fname");
         String sname=request.getParameter("sname");
 
-        HttpSession session=request.getSession();
-        LoggedIn lg = (LoggedIn) session.getAttribute("LoggedIn");
-        int position = lg.getPosition();
-        int branchID = lg.getBranchId();
+        if(password.equals(cPassword)) {
+            HttpSession session = request.getSession();
+            LoggedIn lg = (LoggedIn) session.getAttribute("LoggedIn");
+            int position = lg.getPosition();
+            int branchID = lg.getBranchId();
 
-        
-        User us=new User();
-        int staffID = us.newStaffId();
 
-        if(position == 2) {
-            if(us.RegisterStaff(address, password, fname, sname, position, branchID, staffID) == true){
-                response.sendRedirect("/Manager/Staff");
-            }else{
-                response.sendRedirect("/Register");
+            User us = new User();
+            int staffID = us.newStaffId();
+
+            if (position == 2) {
+                if (us.RegisterStaff(address, password, fname, sname, position, branchID, staffID) == true) {
+                    response.sendRedirect("/Manager");
+                } else {
+                    response.sendRedirect("/Register");
+                }
+            } else if (position == 3) {
+                int managerBranch = Integer.parseInt(request.getParameter("managerBranch"));
+                if (us.RegisterManager(address, password, fname, sname, position, managerBranch, staffID) == true) {
+                    response.sendRedirect("/Ceo");
+                } else {
+                    response.sendRedirect("/Register");
+                }
             }
-        }else if(position == 3){
-            int managerBranch = Integer.parseInt(request.getParameter("managerBranch"));
-            if(us.RegisterManager(address, password, fname, sname, position, managerBranch, staffID) == true) {
-                response.sendRedirect("/Ceo/Staff");
-            }else{
-                response.sendRedirect("/Register");
-            }
+        }else{
+            response.sendRedirect("/Register");
         }
     }
 

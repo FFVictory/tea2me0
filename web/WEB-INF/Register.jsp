@@ -3,7 +3,6 @@
     Created on : 03-Nov-2014, 14:05:22
     Author     : Christopher
 --%>
-<%@page import="java.util.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="stores.LoggedIn"%>
 
@@ -24,6 +23,7 @@
                     <li>Surname <input type="text" name="sname"></li>
                     <li>Address <input type="text" name="address"></li>
                     <li>Password <input type="password" name="password"></li>
+                    <li>Confirm Password <input type="password" name="confirmPassword"></li>
                     <%
                         LoggedIn lg = (LoggedIn) session.getAttribute("LoggedIn");
                         if(lg.getPosition()== 3){

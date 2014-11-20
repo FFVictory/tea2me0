@@ -13,4 +13,8 @@
         <servlet-name>Staff</servlet-name>
         <servlet-class>servlets.Staff</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>StaffOptions</servlet-name>
+        <servlet-class>servlets.StaffOptions</servlet-class>
+    </servlet>
 </web-app>

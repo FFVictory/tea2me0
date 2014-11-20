@@ -26,7 +26,7 @@
     <form action="/Competition" method="get">
       <input type="submit" name="competition" value="competition">
     </form>
-    <form action="/Staff">
+    <form action="/StaffOptions">
         <input type="submit" name="staff" value="Staff">
     </form>
 
