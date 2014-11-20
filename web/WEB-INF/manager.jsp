@@ -14,7 +14,7 @@
 <form action="/Sale">
     <input type="submit" name="sale" value="Sale"><br>
 </form>
-<form action="/Staff">
+<form action="/StaffOptions">
     <input type="submit" name="staff" value="Staff"><br>
 </form>
 <form action="/Stock">

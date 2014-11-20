@@ -13,12 +13,16 @@
 <%@ page import="java.util.*" %>
 <%@page import="stores.Item" %>
 <%@page import="stores.List" %>
-
+<%@page import="java.text.*" %>
+<%@page import="stores.*" %>
 <html>
 <head>
     <title> Real-time Sale</title>
 </head>
 <body>
+<%
+   // LoggedIn lg = (LoggedIn) session.getAttribute("LoggedIn");
+   // if (lg != null) {%>
 <!-- I need login to pass BranchID to me.-->
 <style>
     #header {
@@ -65,7 +69,9 @@
     }
 </style>
 <div id="header"><h1>TeaToMe</h1></div>
-<div id="footer"><p1>TeaToMe  All rights reserved.</p1></div>
+<div id="footer">
+    <p1>TeaToMe  All rights reserved.</p1>
+</div>
 
 <div id="nav">
     <div class="nav1">
@@ -140,6 +146,7 @@
         </div>
         <div class="nav11">
             <form  method="POST" action="rtSale" >
+
                 <input type="submit" name="t1" value ="Biscuit" style="width: 150px; height: 100px;">
             </form>
         </div>
@@ -152,7 +159,7 @@
 </div>
 <div id="section">
     <%
-        float total=0;
+        double total=0;
         List lt=new List();
         if (session.getAttribute("list")!=null)
             lt = (List) session.getAttribute("list");
@@ -163,14 +170,20 @@
             while (iterator.hasNext()) {
                 Item t = (Item) iterator.next();
                 total+=t.getPrice();
+             //   total.setPrecision(2);
+
+
     %>
     <li>
         <%=t.getName()+t.getPrice() %>
     </li>
-    <% }%>
+    <% }
+        DecimalFormat df = new DecimalFormat("#.##");%>
     <br>
-    <%="Total=£"+total%>
+    <%="Total=£"+df.format(total)%>
+    <% System.out.println("jsp");%>
     <form  method="GET" action="rtSale" >
+           LoyaltyCardID : <input type="number" name="LCid">
         <input type="submit" name="sc" value ="Sale Complete" style="width: 120px; height: 30px;">
     </form>
 
@@ -179,5 +192,8 @@
     </form>
     <% } %>
 </div>
+<%//}else{%>
+<li><a href="index.jsp">Login</a></li>
+<% //  }%>
 </body>
 </html>

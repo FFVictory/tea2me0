@@ -12,6 +12,8 @@ import java.sql.*;
 import lib.AeSimpleSHA1;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
+import stores.FoundStaff;
 import stores.LoggedIn;
 
 public class User {
@@ -354,6 +356,40 @@ public class User {
         return true;
     }
 
+    public boolean UpdateStaff(int staffID, String fname, String sname,String newAddress,String newTraining, int branchID){
+
+        boolean dbCon = true;
+
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            connect = DriverManager.getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306?"
+                    +"user=14ac3u32&password=cab123");
+            preparedStatement  = connect.prepareStatement("UPDATE 14ac3d32.staffmember SET firstName=?, lastName=?, address=?, training=?, branchId=? where staffId=?;");
+            preparedStatement.setString(1, fname);
+            preparedStatement.setString(2, sname);
+            preparedStatement.setString(3, newAddress);
+            preparedStatement.setString(4, newTraining);
+            preparedStatement.setInt(5, branchID);
+            preparedStatement.setInt(6, staffID);
+            preparedStatement.executeUpdate();
+
+        }catch (Exception ex) {
+            System.out.println(ex);
+            dbCon = false;
+            return false;
+        }finally {
+            try {
+                if(dbCon) {
+                    preparedStatement.close();
+                    connect.close();
+                }
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+        }
+        return true;
+    }
+
     public int newStaffId() {
 
 
@@ -387,6 +423,45 @@ public class User {
         }
         return staffID+1;
 
+    }
+
+    public FoundStaff getStaffMember(int staffID){
+
+        FoundStaff fs = new FoundStaff();
+        Boolean dbCon = true;
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            connect = DriverManager.getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306?"
+                    +"user=14ac3u32&password=cab123");
+            preparedStatement  = connect.prepareStatement("SELECT * FROM 14ac3d32.staffmember WHERE staffId = ?;");
+            preparedStatement.setInt(1, staffID);
+
+            resultSet = preparedStatement.executeQuery();
+
+            if(resultSet.next()) {
+                fs.setStaffId(resultSet.getInt("staffId"));
+                fs.setFirstName(resultSet.getString("firstName"));
+                fs.setLastName(resultSet.getString("lastName"));
+                fs.setAddress(resultSet.getString("address"));
+                fs.setBranchId(resultSet.getInt("BranchId"));
+                fs.setTraining(resultSet.getString("training"));
+            }
+
+        }catch (Exception ex) {
+            System.out.println(ex);
+            dbCon = false;
+        }finally {
+            try {
+                if(dbCon) {
+                    resultSet.close();
+                    preparedStatement.close();
+                    connect.close();
+                }
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+        }
+        return fs;
     }
 
 }
