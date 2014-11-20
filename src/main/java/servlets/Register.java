@@ -4,7 +4,6 @@ package servlets;/*
  * and open the template in the editor.
  */
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +17,7 @@ import stores.*;
  *
  * @author Christopher
  */
-@WebServlet(urlPatterns = {"/Register"})
+@WebServlet(name = "Register", urlPatterns = "/Register")
 public class Register extends HttpServlet {
 
     /**

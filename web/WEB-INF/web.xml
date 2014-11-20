@@ -9,4 +9,8 @@
         <servlet-name>Stock</servlet-name>
         <servlet-class>servlets.Stock</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Staff</servlet-name>
+        <servlet-class>servlets.Staff</servlet-class>
+    </servlet>
 </web-app>

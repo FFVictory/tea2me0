@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
-  <data-source name="MySQL - @silva.computing.dundee.ac.uk" uuid="46708ce9-bc1f-412f-b986-c5d197c3e17e">
-    <database-info product="MySQL" version="5.6.20-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )">
+  <data-source source="LOCAL" name="MySQL - @silva.computing.dundee.ac.uk" uuid="46708ce9-bc1f-412f-b986-c5d197c3e17e">
+    <database-info product="MySQL" version="5.6.20-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.31 ( Revision: alexander.soklakov@oracle.com-20140520065950-groqzzbvxprqdmnz )">
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>
     </database-info>
@@ -112,13 +112,16 @@
     </table>
     <table name="loyaltycard" schema="" catalog="14ac3d32" type="TABLE">
       <column name="loyaltyCardID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="avgSalePrice" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
-      <column name="favouriteTea" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
-      <column name="favouriteSnack" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
-      <column name="bonusPoints" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
-      <column name="favouriteBranch" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="firstName" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="lastName" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="city" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="bonusPoints" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="dateOfBirth" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="career" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="gender" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="loyaltyCardID"/>
       <exported-key name="customer_ibfk_1" table="customer" schema="" catalog="14ac3d32" columns="loyaltyCardId"/>
+      <exported-key name="order_ibfk_1" table="order" schema="" catalog="14ac3d32" columns="loyaltycardID"/>
     </table>
     <table name="naturaldisasters" schema="" catalog="14ac3d32" type="TABLE">
       <column name="nameOfCountry" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
@@ -132,10 +135,13 @@
     <table name="order" schema="" catalog="14ac3d32" type="TABLE">
       <column name="orderId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="dateOfPurchase" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
-      <column name="orderPrice" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="orderPrice" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
       <column name="products" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="loyaltyCardID" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="orderId"/>
+      <foreign-key name="order_ibfk_1" columns="loyaltycardID" ref-table="loyaltycard" ref-schema="" ref-catalog="14ac3d32" ref-columns="loyaltyCardID" update-rule="3" delete-rule="3" deferrability="2"/>
       <exported-key name="fk99" table="customer" schema="" catalog="14ac3d32" columns="customerId"/>
+      <index name="loyaltycardID" unique="false" columns="loyaltyCardID"/>
     </table>
     <table name="potentialbranch" schema="" catalog="14ac3d32" type="TABLE">
       <column name="pBranchID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>

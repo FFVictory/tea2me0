@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="2736194487">
+  <component name="DataSourceManagerImpl" format="xml" hash="2263941455">
     <data-source source="LOCAL" name="MySQL - @silva.computing.dundee.ac.uk" uuid="46708ce9-bc1f-412f-b986-c5d197c3e17e">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://silva.computing.dundee.ac.uk:3306</jdbc-url>
+      <user-name>14ac3u32</user-name>
+      <user-password>dfc9dfcbdfc8df9bdf98df99</user-password>
       <driver-properties>
         <property name="zeroDateTimeBehavior" value="convertToNull" />
         <property name="tinyInt1isBit" value="false" />
@@ -14,3 +16,4 @@
     </data-source>
   </component>
 </project>
+
