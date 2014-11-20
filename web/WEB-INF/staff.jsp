@@ -80,5 +80,8 @@
         <li class="footer"><a href="/Tea2Me">Home</a></li>
     </ul>
 </footer>
+<form action="/Logout" method="post">
+    <input type="submit" value="Logout">
+</form>
 </body>
 </html>

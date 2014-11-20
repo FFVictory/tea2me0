@@ -20,5 +20,8 @@
 <form action="/DeleteStaff">
     <input type="submit" name="DeleteStaff" value="Delete a Member of Staff">
 </form>
+<form action="/Logout" method="post">
+    <input type="submit" value="Logout">
+</form>
 </body>
 </html>
