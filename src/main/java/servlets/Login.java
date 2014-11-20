@@ -62,27 +62,26 @@ public class Login extends HttpServlet {
             RequestDispatcher rd=null;
             switch (Pos) {
             case 1:
-            	 rd=request.getRequestDispatcher("staff.jsp");
+                response.sendRedirect("/Staff");
                 break;
             case 2:
-            	 rd=request.getRequestDispatcher("manager.jsp");
+                response.sendRedirect("/Manager");
                 break;
             case 3:
-            	 rd=request.getRequestDispatcher("CEO.jsp");
+                response.sendRedirect("/CEO");
                 break;
             case 4:
-           	     rd=request.getRequestDispatcher("ET.jsp");
+                response.sendRedirect("/ET");
                break;    
             default:
-            	 rd=request.getRequestDispatcher("login.jsp");   
+                response.sendRedirect("/Index");
         }
             
-	    rd.forward(request,response);
 	  ///////////////////////////////////right??????????????????????????????????????????????/
 	  
             
         }else{
-            response.sendRedirect("Index.jsp");
+            response.sendRedirect("/Index");
         }
         
     }
