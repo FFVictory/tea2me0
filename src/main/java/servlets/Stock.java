@@ -33,7 +33,7 @@ public class Stock extends HttpServlet {
             StockModel sm = new StockModel();
             LinkedList<Stocks> stocks = sm.getStock(lg.getBranchId());
             session.setAttribute("stocks", stocks);
-            RequestDispatcher rd = request.getRequestDispatcher("stock.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("/stock.jsp");
             rd.forward(request, response);
         } else {
             System.out.println("No attribute LoggedIn in session @Stock");
