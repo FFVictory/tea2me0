@@ -23,9 +23,9 @@ public class GeoPolitical extends HttpServlet {
         HttpSession session = request.getSession();
         models.GeoPolitical gpm = new models.GeoPolitical();
         LinkedList<stores.GeoPolitical> geoPolitical = new LinkedList<stores.GeoPolitical>();
-        geoPolitical = gpm.getGPolitical(request.getParameter("country"));
+        geoPolitical = gpm.getGPolitical();
         session.setAttribute("geoPolitical", geoPolitical);
-        RequestDispatcher rd = request.getRequestDispatcher("geoPoliitical.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("geoPolitical.jsp");
         rd.forward(request, response);
 
     }
