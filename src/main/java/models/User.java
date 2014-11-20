@@ -259,7 +259,7 @@ public class User {
       	
           }
 
-    public boolean RegisterStaff(String address, String Password, String fname, String sname, int user, int branchID){
+    public boolean RegisterStaff(String address, String Password, String fname, String sname, int user, int branchID, int staffID){
         AeSimpleSHA1 sha1handler=  new AeSimpleSHA1();
         String EncodedPassword=null;
         boolean dbCon = true;
@@ -284,7 +284,7 @@ public class User {
         preparedStatement.setString(4,sname);
         preparedStatement.setInt(5, 1);
         preparedStatement.setInt(6, 15000);
-        preparedStatement.setInt(7, 5555);
+        preparedStatement.setInt(7, staffID);
         preparedStatement.setInt(8, branchID);
 
         preparedStatement.executeUpdate();
@@ -306,7 +306,7 @@ public class User {
         return true;
     }
 
-    public boolean RegisterManager(String address, String Password, String fname, String sname, int user, int branchID){
+    public boolean RegisterManager(String address, String Password, String fname, String sname, int user, int branchID, int staffID){
         AeSimpleSHA1 sha1handler=  new AeSimpleSHA1();
         String EncodedPassword=null;
         boolean dbCon = true;
@@ -331,7 +331,7 @@ public class User {
             preparedStatement.setString(4,sname);
             preparedStatement.setInt(5, 2);
             preparedStatement.setInt(6, 25000);
-            preparedStatement.setInt(7, 5555);
+            preparedStatement.setInt(7, staffID);
             preparedStatement.setInt(8, branchID);
 
 
@@ -353,4 +353,40 @@ public class User {
         }
         return true;
     }
+
+    public int newStaffId() {
+
+
+        int staffID = 0;
+        boolean dbCon = true;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            connect = DriverManager.getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306?"
+                    +"user=14ac3u32&password=cab123");
+            preparedStatement = connect.prepareStatement("SELECT staffID FROM 14ac3d32.staffmember ORDER BY staffID DESC;");
+            resultSet = preparedStatement.executeQuery();
+
+            if(resultSet.next()) {
+                staffID = Integer.parseInt(resultSet.getString(1));
+            }
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+            dbCon = false;
+
+        } finally {
+            try {
+                if(dbCon) {
+                    resultSet.close();
+                    preparedStatement.close();
+                    connect.close();
+                }
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+        }
+        return staffID+1;
+
+    }
+
 }
