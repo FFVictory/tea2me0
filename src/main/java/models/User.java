@@ -356,6 +356,40 @@ public class User {
         return true;
     }
 
+    public boolean UpdateStaff(int staffID, String fname, String sname,String newAddress,String newTraining, int branchID){
+
+        boolean dbCon = true;
+
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            connect = DriverManager.getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306?"
+                    +"user=14ac3u32&password=cab123");
+            preparedStatement  = connect.prepareStatement("UPDATE 14ac3d32.staffmember SET firstName=?, lastName=?, address=?, training=?, branchId=? where staffId=?;");
+            preparedStatement.setString(1, fname);
+            preparedStatement.setString(2, sname);
+            preparedStatement.setString(3, newAddress);
+            preparedStatement.setString(4, newTraining);
+            preparedStatement.setInt(5, branchID);
+            preparedStatement.setInt(6, staffID);
+            preparedStatement.executeUpdate();
+
+        }catch (Exception ex) {
+            System.out.println(ex);
+            dbCon = false;
+            return false;
+        }finally {
+            try {
+                if(dbCon) {
+                    preparedStatement.close();
+                    connect.close();
+                }
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+        }
+        return true;
+    }
+
     public int newStaffId() {
 
 

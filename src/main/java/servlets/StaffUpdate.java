@@ -17,8 +17,18 @@ import models.*;
 @WebServlet(name = "StaffUpdate", urlPatterns = "/StaffUpdate")
 public class StaffUpdate extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //update in database
+        String address = request.getParameter("address");
+        String training = request.getParameter("training");
+        int managerBranch = Integer.parseInt(request.getParameter("managerBranch"));
+        String fname = request.getParameter("fname");
+        String sname = request.getParameter("sname");
+        int staffId = Integer.parseInt(request.getParameter("staffId"));
+
+        User us = new User();
+        us.UpdateStaff(staffId, fname, sname, address, training, managerBranch);
+        response.sendRedirect("/Staff");
     }
+
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User us = new User();

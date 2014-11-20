@@ -17,6 +17,7 @@
 
             %>
             <lable>staffId: <%=fs.getStaffId()%></lable>
+            <input type="hidden" name="staffId" value ="<%=fs.getStaffId()%>">
             <li>Forename <input type="text" name="fname" value="<%=fs.getFirstName()%>"></li>
             <li>Surname <input type="text" name="sname" value="<%=fs.getLastName()%>"></li>
             <li>Address <input type="text" name="address" value="<%=fs.getAddress()%>"></li>
