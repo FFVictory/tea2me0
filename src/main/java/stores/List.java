@@ -3,7 +3,7 @@ package stores;
 import java.util.Iterator;
 
 /**
- * Created by Administrator on 2014/11/17.
+ * Created by KJ on 2014/11/17.
  */
 public class List {
 

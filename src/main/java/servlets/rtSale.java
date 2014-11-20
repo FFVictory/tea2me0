@@ -4,7 +4,7 @@ import models.RTSale;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-//import javax.servlet.annotation.WebServlet;look at this
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,7 +23,7 @@ import java.util.LinkedList;
  */
 
 
-//@WebServlet(name = "rtSale", urlPatterns = {"/rtSale"})  //look at this
+@WebServlet(name = "rtSale", urlPatterns = {"/rtSale"})  //look at this
 public class rtSale extends HttpServlet {
 
     public void init(ServletConfig config) throws ServletException {
@@ -48,9 +48,7 @@ public class rtSale extends HttpServlet {
             lt=(List) session.getAttribute("list");
            // lt = (List) session.getAttribute("list");
             RTSale rt=new RTSale();
-            System.out.println("11");
             try {
-                System.out.println("22");
                 rt.RTS(lt.getItem());
             } catch (SQLException e) {
                 e.printStackTrace();

@@ -2,7 +2,7 @@ package stores;
 import java.util.Date;
 import java.util.LinkedList;
 /**
- * Created by Administrator on 2014/11/10.
+ * Created by KJ on 2014/11/10.
  */
 public class Item {
     private String name = null;
