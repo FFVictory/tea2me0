@@ -21,7 +21,7 @@ public class PotentialBranch {
             Class.forName("com.mysql.jdbc.Driver");
             connect = DriverManager.getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306?"
                     + "user=14ac3u32&password=cab123");
-            statement = connect.prepareStatement("Select * from view_potential_branch");
+            statement = connect.prepareStatement("Select * from 14ac3d32.view_potential_branch");
             resultSet = statement.executeQuery();
             if (resultSet != null) {
                 while (resultSet.next()) {
