@@ -27,12 +27,16 @@ public class LCardModel {
     private PreparedStatement preparedStatement = null;
     private ResultSet rs = null;
     public int getLoyaltyCardID() {
+        System.out.println("into LCardModel");
         Loyaltycard l=new Loyaltycard();
         try {
+            System.out.println("try to connect");
             Class.forName("com.mysql.jdbc.Driver");
             connect = DriverManager.getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306?"
                     + "user=14ac3u32&password=cab123");
+            System.out.println("connected");
             preparedStatement = connect.prepareStatement("Select loyaltyCardID from 14ac3d32.loyaltycard ");
+            System.out.println("select");
             rs=preparedStatement.executeQuery();
 
             rs.last();
@@ -78,27 +82,31 @@ public class LCardModel {
             System.out.println("Exception at LoyalCardModel");
         }
     }
-    public java.util.LinkedList<Integer> preference(String ca,Date d1, Date d2){
-       // HttpSession session = request.getSession();
-       // customer c = new customer();
-       // c=(customer)session.getAttribute("Customer");
-       // java.util.LinkedList<customer> clink = new java.util.LinkedList<>();
+    public java.util.LinkedList<Integer> preference(String ca){//,Date d1, Date d2){
+        System.out.println("Welcome to preference.");
         java.util.LinkedList<Integer> ID = new java.util.LinkedList<>();
-
-       // String car=c.getCareer();
-        //Date dob1=c.getDateOfBirth1();
-        //Date dob2=c.getDateOfBirth2();
-
         try {
+            System.out.println("prepare to connect");
             Class.forName("com.mysql.jdbc.Driver");
             connect = DriverManager.getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306?"
                     + "user=14ac3u32&password=cab123");
-            preparedStatement = connect.prepareStatement("Select loyaltyCardID from 14ac3d32.loyaltycard WHERE career=ca AND dateOfBirth BETWEEN d1 AND d2;");
-
+            System.out.println("connected");
+            preparedStatement = connect.prepareStatement("Select loyaltyCardID from 14ac3d32.loyaltycard WHERE career=? order by loyaltyCardID;");
+            System.out.println("select loyaltycardID");
+            preparedStatement.setString(1, ca);
+            //AND dateOfBirth BETWEEN ? AND ?
+                //    preparedStatement.setDate(2, d1);
+           // preparedStatement.setDate(3, d2);
+            System.out.println("test if it works");
             rs=preparedStatement.executeQuery();
-            int i=0;
+            System.out.println("wonder where ");
+            int i;
             while(!(rs.isAfterLast())){
+                System.out.println("is it here?");
+                System.out.println(rs.getRow());
                 i = rs.getInt("loyaltyCardID");
+                System.out.println("i="+i);
+                System.out.println("or maybe here");
                 ID.add(i);
                 rs.next();
             }
