@@ -29,14 +29,14 @@ public class BranchModel {
         //Cases to include all combinations of inputs
         try {
             if (cityId != 0 && branchId != 0) {
-                ps = connect.prepareStatement("Select * from 14ac3d32.branch WHERE branchId=? AND cityId=?;");
+                ps = connect.prepareStatement("Select * from 14ac3d32.view_branch_w_suppliers WHERE branchId=? AND cityId=?;");
                 ps.setInt(1, branchId);
                 ps.setInt(2, cityId);
             } else if ((cityId != 0) && (branchId == 0)) {
-                ps = connect.prepareStatement("Select * from 14ac3d32.branch WHERE cityId=?");
+                ps = connect.prepareStatement("Select * from 14ac3d32.view_branch_w_suppliers WHERE cityId=?");
                 ps.setInt(1, cityId);
             } else if ((cityId == 0) && (branchId != 0)) {
-                ps = connect.prepareStatement("Select * from 14ac3d32.branch WHERE branchId=?");
+                ps = connect.prepareStatement("Select * from 14ac3d32.view_branch_w_suppliers WHERE branchId=?");
                 ps.setInt(1, branchId);
             } else
                 System.out.println("Something sucks at @BranchModel");
@@ -44,14 +44,17 @@ public class BranchModel {
             rs = ps.executeQuery();
             while (rs.next()) {
         BranchStore bs = new BranchStore();
-                bs.setAddress(rs.getString("address"));
                 bs.setBranchId(rs.getInt("branchId"));
                 bs.setSize(rs.getInt("size"));
+                bs.setAddress(rs.getString("address"));
                 bs.setExpenditure(rs.getInt("expenditure"));
                 bs.setAdvertismentCosts(rs.getInt("advertismentCosts"));
-                bs.setLeaseCost(rs.getInt("leaseCost"));
                 bs.setRevenue(rs.getInt("revenue"));
                 bs.setCityId(rs.getInt("cityId"));
+                bs.setLeaseCost(rs.getInt("leaseCost"));
+                bs.setSupplierName(rs.getString("name"));
+                bs.setTeaQuality(rs.getInt("teaQUality"));
+                bs.setcRating(rs.getInt("cRating"));
                 bsl.add(bs);
             }
         } catch (Exception e) {

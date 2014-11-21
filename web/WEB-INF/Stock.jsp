@@ -22,7 +22,7 @@
 <table>
     <tr>
         <th>BranchId</th>
-        <th>Stock Level</th>
+        <th>Tea Type</th>
         <th>TeaName</th>
         <th>Stock Requested</th>
     </tr>
@@ -41,7 +41,8 @@
     <tr>
         <td><%=stock.getBranchId()%></td>
         <td><%=stock.getTeaType()%></td>
-        <td><%=stock.getStock()%></td>
+        <td><%=stock.getTeaName()%>
+        </td>
         <td>
             <%if(stock.getStockRequested()==1){
             %>Pending Stock<%

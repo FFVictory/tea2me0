@@ -23,9 +23,12 @@
         <th>Address : </th>
         <th>Expenditure : </th>
         <th>Advertisment Costs :</th>
-        <th>Lease Costs :</th>
         <th>Revenue : </th>
         <th>City ID : </th>
+        <th>Lease Costs :</th>
+        <th>Name :</th>
+        <th>Tea Quality :</th>
+        <th>Credit Rating :</th>
 
     </tr>
     <%
@@ -53,13 +56,17 @@
         <td><%=bs.getAdvertismentCosts()%>
         </td>
         </td>
-        <td><%=bs.getLeaseCost()%>
-        </td>
-        </td>
         <td><%=bs.getRevenue()%>
         </td>
-        </td>
         <td><%=bs.getCityId()%>
+        </td>
+        <td><%=bs.getLeaseCost()%>
+        </td>
+        <td><%=bs.getSupplierName()%>
+        </td>
+        <td><%=bs.getTeaQuality()%>
+        </td>
+        <td><%=bs.getcRating()%>
         </td>
     </tr>
     <%            }
