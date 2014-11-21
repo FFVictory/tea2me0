@@ -9,6 +9,7 @@
         <element id="directory" name="lib">
           <element id="library" level="project" name="mysql-connector-java-5.1.34-bin" />
           <element id="library" level="project" name="mysql-connector-java-5.1.33-bin" />
+          <element id="file-copy" path="D:/TDDOWNLOAD/mysql-connector-java-5.1.13-bin.jar" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="tea2me0/web/Web" />

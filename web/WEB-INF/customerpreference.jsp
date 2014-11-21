@@ -10,8 +10,35 @@
 <html>
 <head>
     <title>customerPreference</title>
+    <style>
+        #header {
+            background-color:greenyellow;
+            color:black;
+            text-align:center;
+            padding:10px;
+        }
+        #footer {
+            background-color:black;
+            color:white;
+            clear:both;
+            text-align:center;
+            padding:15px;
+        }
+        body {
+            color:grey;
+            position: absolute;
+            left: 30px;
+            top: 20px;
+            text-align: center;}
+
+    </style>
 </head>
 <body>
+<body>
+<div id="header"><h1>TeaToMe</h1></div>
+<div id="footer">
+    <p1>TeaToMe  All rights reserved.</p1>
+</div>
 <%
     // LoggedIn lg = (LoggedIn) session.getAttribute("LoggedIn");
     // if (lg != null) {%>

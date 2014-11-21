@@ -94,8 +94,11 @@ public class RTSale {
                 System.out.println("Start updating bonuspoint");
                 Item tm = (Item) iterator.next();
                     preparedStatement = connect.prepareStatement("select bonusPoints from 14ac3d32.loyaltycard where loyaltyCardID=?");
+                    System.out.println("A");
                     preparedStatement.setInt(1, cardid);
+                    System.out.println("B");
                 resultSet=preparedStatement.executeQuery();
+                System.out.println("C");
                     int bp=resultSet.getInt("bonusPoints");
                     System.out.println("bonusPoint"+bp);
                     int newbp=bp+(int)tm.getPrice()*100;

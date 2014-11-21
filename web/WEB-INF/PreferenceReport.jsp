@@ -12,16 +12,23 @@
 </head>
 <body>
 <%
+    System.out.println("come to jsp");
     int vote[];
+    System.out.println("1");
     vote=(int[])session.getAttribute("prefer");
+    System.out.println("2");
     int counter;
     int sum=0;
-    for(counter=1; counter<13;counter++){
+    for(counter=0; counter<12;counter++){
         sum+=vote[counter];
+        System.out.println("vote"+vote[counter]);
     }
-    int percent[]=new int[12];
-    for(counter=1; counter<13;counter++){
-        percent[counter]=vote[counter]/sum;
+    if(sum!=0)
+    {
+    double percent[]=new double[12];
+    for(counter=0; counter<12;counter++){
+        percent[counter]=(double)100*(vote[counter]/sum);
+
     }
     // by order
 %>
@@ -41,20 +48,23 @@
         <td>West Lake</td>
     </tr>
     <tr>
-        <td>percent[1]</td>
-        <td>percent[2]</td>
-        <td>percent[3]</td>
-        <td>percent[4]</td>
-        <td>percent[5]</td>
-        <td>percent[6]</td>
-        <td>percent[7]</td>
-        <td>percent[8]</td>
-        <td>percent[9]</td>
-        <td>percent[10]</td>
-        <td>percent[11]</td>
-        <td>percent[12]</td>
+        <td><%=percent[1]%>%</td>
+        <td><%=percent[2]%>%</td>
+        <td><%=percent[3]%>%</td>
+        <td><%=percent[4]%>%</td>
+        <td><%=percent[5]%>%</td>
+        <td><%=percent[6]%>%</td>
+        <td><%=percent[7]%>%</td>
+        <td><%=percent[8]%>%</td>
+        <td><%=percent[9]%>%</td>
+        <td><%=percent[10]%>%</td>
+        <td><%=percent[11]%>%</td>
+        <td><%=percent[12]%>%</td>
 
     </tr>
 </table>
+<%}else{%>
+No Record Found!
+<%}%>
 </body>
 </html>

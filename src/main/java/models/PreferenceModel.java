@@ -19,27 +19,36 @@ public class PreferenceModel {
 
     }
     public int[] getPreferData(java.util.LinkedList<Integer> id){
-
+        System.out.println("1");
         //java.util.LinkedList<Integer> id = new java.util.LinkedList<>();
         //id=(java.util.LinkedList<Integer>)session.getAttribute("LoyaltyCardID");
         Iterator<Integer> iterator;
         iterator = id.iterator();
         String i=null;
         vote v = new vote();
+        System.out.println("2");
         int[] num = new int[12];
-        for(int counter=0; counter<13; counter++){
+        System.out.println("3");
+        for(int counter=0; counter<12; counter++){
             num[counter]=0;
+            System.out.println("num"+num[counter]);
         }
         try {
+            System.out.println("4");
             Class.forName("com.mysql.jdbc.Driver");
             connect = DriverManager.getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306?"
                     + "user=14ac3u32&password=cab123");
+            System.out.println("5");
             while (iterator.hasNext()) {//first loop for linkedlist
-                preparedStatement = connect.prepareStatement("Select products from 14ac3d32.order WHERE loyaltyCardID=");
+                preparedStatement = connect.prepareStatement("Select products from 14ac3d32.order WHERE loyaltyCardID=?");
+                preparedStatement.setInt(1,iterator.next() );
                 resultSet = preparedStatement.executeQuery();
 
-                while (!(resultSet.isAfterLast())) {//second loop for resultSet
+                System.out.println("6");
+                for (int m=1; m<=resultSet.getRow();m++) {//second loop for resultSet
+                    resultSet.next();
                     i = resultSet.getString("products");
+                    System.out.println("7");
                     switch(i)
                     {
                         case "Earl Grey": num[1]++;
@@ -69,12 +78,18 @@ public class PreferenceModel {
                         default: num[0]++;
                             break;
                     }
-                    resultSet.next();
+
                 }
+                System.out.println("num1"+num[1]+num[2]+num[3]);
             }
-            v.setVote(num);
+            resultSet.close();
             preparedStatement.close();
             connect.close();
+
+            v.setVote(num);
+            System.out.println("num2"+num[1]+num[2]+num[3]);
+
+
         } catch (Exception e) {
             System.out.println("Exception at PreferenceModel");
         }
