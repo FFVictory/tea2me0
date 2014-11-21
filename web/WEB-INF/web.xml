@@ -21,4 +21,8 @@
         <servlet-name>StaffUpdate</servlet-name>
         <servlet-class>servlets.StaffUpdate</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteStaff</servlet-name>
+        <servlet-class>servlets.DeleteStaff</servlet-class>
+    </servlet>
 </web-app>

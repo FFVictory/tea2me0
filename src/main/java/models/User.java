@@ -390,6 +390,36 @@ public class User {
         return true;
     }
 
+
+    public boolean DeleteStaff(int staffID){
+
+        boolean dbCon = true;
+
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            connect = DriverManager.getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306?"
+                    +"user=14ac3u32&password=cab123");
+            preparedStatement  = connect.prepareStatement("delete from 14ac3d32.staffmember where staffId=?");
+            preparedStatement.setInt(1, staffID);
+            preparedStatement.executeUpdate();
+
+        }catch (Exception ex) {
+            System.out.println(ex);
+            dbCon = false;
+            return false;
+        }finally {
+            try {
+                if(dbCon) {
+                    preparedStatement.close();
+                    connect.close();
+                }
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+        }
+        return true;
+    }
+
     public int newStaffId() {
 
 
