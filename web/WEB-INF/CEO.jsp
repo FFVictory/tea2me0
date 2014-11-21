@@ -56,7 +56,7 @@
         <input type="submit" name="staff" value="Staff"style="width: 300px; height: 50px;">
     </form>
     <form action="/Certifications">
-        <input type="submit" name="staff" value="Tea Certification">
+        <input type="submit" name="staff" value="Tea Certification"style="width: 300px; height: 50px;">
     </form>
     <form action="/Logout" method="post">
         <input type="submit" value="Logout"style="width: 100px; height: 30px;">
