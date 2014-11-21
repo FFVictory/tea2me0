@@ -62,7 +62,7 @@ public class Login extends HttpServlet {
             RequestDispatcher rd=null;
             switch (Pos) {
             case 1:
-                response.sendRedirect("/rtSale");
+                response.sendRedirect("/Sale");
                 break;
             case 2:
                 response.sendRedirect("/Manager");
