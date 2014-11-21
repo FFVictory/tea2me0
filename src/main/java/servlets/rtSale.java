@@ -68,6 +68,7 @@ public class rtSale extends HttpServlet {
 
                 rt.RTS(lt.getItem(),cardid,odrid);
                 System.out.println("S4");
+                rt.BPoint(lt.getItem(),cardid);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
