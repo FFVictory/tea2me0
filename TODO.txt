@@ -1,0 +1,21 @@
+
+-
+General
+-Remove Home buttons , our app does not have a home it has only login screen
+-Remove all the commented out code
+-
+Security:
+-Not allow unlogged in users to access .jsp files by simply going to an URL
+-
+Database:
+-Modify the Queries in the code to use views instead of accessing the tables directly 
+-
+Decision Making:
+-For now there is only a list of potential branches some logic might analyze the data and produce a suggestion
+-
+rtSale
+-Why is there a login button?
+-Checkout without loyaltyCard
+-
+--Questions
+-Why is it when staff logs in it goes to a list of all staff members instead of going to real-time_sale.jsp?
