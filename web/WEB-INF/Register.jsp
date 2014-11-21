@@ -12,18 +12,43 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Tea2Me</title>
         <link rel="stylesheet" type="text/css" href="Styles.css" />
+        <style>
+            #header {
+                background-color:greenyellow;
+                color:black;
+                text-align:center;
+                padding:10px;
+            }
+            #footer {
+                background-color:black;
+                color:white;
+                clear:both;
+                text-align:center;
+                padding:15px;
+            }
+            body {
+                color:grey;
+                position: absolute;
+                left: 30px;
+                top: 20px;
+                text-align: center;}
+
+        </style>
     </head>
     <body>
-               
+    <div id="header"><h1>TeaToMe</h1></div>
+    <div id="footer">
+        <p1>TeaToMe  All rights reserved.</p1>
+    </div>
         <article>
             <h3>Register a new Staff Member:</h3>
             <form method="POST"  action="Register">
                 <ul>
-                    <li>Forename <input type="text" name="fname"style="width: 300px; height: 50px;"></li>
-                    <li>Surname <input type="text" name="sname" style="width: 300px; height: 50px;"></li>
-                    <li>Address <input type="text" name="address"style="width: 300px; height: 50px;"></li>
-                    <li>Password <input type="password" name="password" style="width: 300px; height: 50px;"></li>
-                    <li>Confirm Password <input type="password" name="confirmPassword"style="width: 300px; height: 50px;"></li>
+                    <li>Forename <input type="text" name="fname"></li>
+                    <li>Surname <input type="text" name="sname" ></li>
+                    <li>Address <input type="text" name="address"></li>
+                    <li>Password <input type="password" name="password" ></li>
+                    <li>Confirm Password <input type="password" name="confirmPassword"></li>
                     <%
                         LoggedIn lg = (LoggedIn) session.getAttribute("LoggedIn");
                         if(lg.getPosition()== 3){
