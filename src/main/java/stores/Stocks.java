@@ -8,7 +8,7 @@ public class Stocks {
 
     public int getTeaType(){return teaType;}
     public int getStock(){return stock;}
-    public int getBranchId(){return stock;}
+    public int getBranchId(){return branchId;}
     public int getStockRequested(){return stockRequested;}
     public void setStockRequested(int stockReq){this.stockRequested=stockReq;}
     public void setTeaType(int tea){this.teaType = tea; }
