@@ -8,6 +8,8 @@ import java.text.SimpleDateFormat;
  * Created by KJ on 2014/11/19.
  */
 public class Loyaltycard {
+
+    
     private String fname=null;
     private String lname=null;
     private String city=null;

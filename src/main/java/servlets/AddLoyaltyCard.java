@@ -46,11 +46,10 @@ public class AddLoyaltyCard extends HttpServlet {
         String gender = request.getParameter("gender");
         System.out.println("Gender is " + gender);
 
-        String bp = request.getParameter("bp");
-        System.out.println("BonusPoint is " + bp);
 //set infor for LoyaltyCard
         Loyaltycard lc = new Loyaltycard();
         lc.setFname(fname);
+
         lc.setLname(lname);
         lc.setCity(city);
         lc.setCareer(career);
