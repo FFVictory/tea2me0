@@ -11,7 +11,7 @@
     <title></title>
 </head>
 <body>
-<form action="/Sale">
+<form action="/rtSale">
     <input type="submit" name="sale" value="Sale"><br>
 </form>
 <form action="/StaffOptions">
