@@ -5,8 +5,9 @@ package stores;
  */
 public class Stocks {
     int branchId;
-    int teaType;
-    int teaName;
+    int stockRequested;
+    String teaType;
+    String teaName;
 
     public int getBranchId() {
         return branchId;
@@ -14,22 +15,6 @@ public class Stocks {
 
     public void setBranchId(int branchId) {
         this.branchId = branchId;
-    }
-
-    public int getTeaType() {
-        return teaType;
-    }
-
-    public void setTeaType(int teaType) {
-        this.teaType = teaType;
-    }
-
-    public int getTeaName() {
-        return teaName;
-    }
-
-    public void setTeaName(int teaName) {
-        this.teaName = teaName;
     }
 
     public int getStockRequested() {
@@ -40,7 +25,19 @@ public class Stocks {
         this.stockRequested = stockRequested;
     }
 
-    int stockRequested;
+    public String getTeaType() {
+        return teaType;
+    }
 
+    public void setTeaType(String teaType) {
+        this.teaType = teaType;
+    }
 
+    public String getTeaName() {
+        return teaName;
+    }
+
+    public void setTeaName(String teaName) {
+        this.teaName = teaName;
+    }
 }

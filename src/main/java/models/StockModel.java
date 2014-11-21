@@ -21,16 +21,16 @@ public class StockModel {
         Class.forName("com.mysql.jdbc.Driver");
         connect = DriverManager.getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306?"
                 + "user=14ac3u32&password=cab123");
-        statement = connect.prepareStatement("Select * from 14ac3d32.branch_tea WHERE branchId =?;");
+        statement = connect.prepareStatement("Select * from 14ac3d32.view_stock WHERE branchId =?;");
         statement.setInt(1, branchId);
         resultSet = statement.executeQuery();
         if (resultSet != null) {
             while (resultSet.next()) {
                 Stocks stock = new Stocks();
                 stock.setBranchId(resultSet.getInt("branchId"));
-                stock.setStock(resultSet.getInt("stockLevel"));
-                stock.setTeaType(resultSet.getInt("teaId"));
+                stock.setTeaType(resultSet.getString("typeOfTea"));
                 stock.setStockRequested(resultSet.getInt("stockRequested"));
+                stock.setTeaName(resultSet.getString("teaName"));
                 stocks.add(stock);
             }
         } else {
