@@ -14,7 +14,7 @@
 <form action="/GeoPolitical">
     <input type="submit" value="List Of Countries">
 </form>
-<form action="/addGeoPolitic">
+<form action="/AddGeoPolitic">
     <input type="submit" value="Add Country">
 </form>
 </body>
