@@ -20,6 +20,7 @@ public class Branch extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("Branch.doGet");
         RequestDispatcher rd = request.getRequestDispatcher("branch.jsp");
         rd.forward(request,response);
     }

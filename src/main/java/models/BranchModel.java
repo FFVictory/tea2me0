@@ -16,6 +16,7 @@ public class BranchModel {
     private ResultSet rs = null;
 
     public BranchStore findBranch(int cityId, int branchId) {
+        System.out.println("BranchModel.findBranch ");
         try {
             Class.forName("com.mysql.jdbc.Driver");
             connect = DriverManager.getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306?"

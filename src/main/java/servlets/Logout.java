@@ -13,7 +13,7 @@ import java.io.IOException;
 /**
  * Created by Drew on 18/11/2014.
  */
-@WebServlet(name = "Logout")
+@WebServlet(name = "Logout" )
 public class Logout extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();

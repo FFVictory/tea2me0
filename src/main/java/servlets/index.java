@@ -16,7 +16,7 @@ import javax.servlet.http.Part;
  * Created by Andrew on 03/11/2014.
  */
 @WebServlet(urlPatterns = {
-        "/" ,"/Index*","/Index/*" , "/Index"
+        "/" , "/Index"
 })
 public class Index extends javax.servlet.http.HttpServlet {
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
