@@ -61,4 +61,26 @@ public class BranchModel {
         return bsl;
 
     }
+
+    public void UpdateBranch(int branchId, int size, String address, int expenditure, int advertismentCosts, int leaseCost, int revenue, int cityId) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            connect = DriverManager.getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306?"
+                    + "user=14ac3u32&password=cab123");
+            ps = connect.prepareStatement("UPDATE 14ac3d32.branch SET size=?, address=?, expenditure=?, advertismentCosts=? ,leaseCost=? , revenue=? , cityId=? where branchId=?;");
+            ps.setInt(1, size);
+            ps.setString(2, address);
+            ps.setInt(3, expenditure);
+            ps.setInt(4, advertismentCosts);
+            ps.setInt(5, leaseCost);
+            ps.setInt(6, revenue);
+            ps.setInt(7, cityId);
+            ps.setInt(8, branchId);
+            ps.executeUpdate();
+
+        } catch (Exception ex) {
+            System.out.println("Something went wrong @BranchMode.UpdateBranch()");
+
+        }
+    }
 }

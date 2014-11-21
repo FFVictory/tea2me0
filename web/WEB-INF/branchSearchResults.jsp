@@ -41,7 +41,8 @@
                 bs = iterator.next();
     %>
     <tr>
-        <td><%=bs.getBranchId()%>
+        <td><a href="/BranchUpdate?param1=<%=bs.getBranchId()%>"><%=bs.getBranchId()%>
+        </a>
         </td>
         <td><%=bs.getSize()%>
         </td>
