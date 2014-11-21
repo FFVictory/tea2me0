@@ -78,6 +78,7 @@
 </article>
 <footer>
     <ul>
+        <li class="footer"><a href="/DeleteStaff">Delete a Member of Staff</a></li>
         <li class="footer"><a href="/Tea2Me">Home</a></li>
     </ul>
 </footer>
