@@ -9,9 +9,12 @@ public class BranchStore {
     String address;
     int expenditure;
     int advertismentCosts;
-    int leaseCost;
     int revenue;
     int cityId;
+    int leaseCost;
+    String supplierName;
+    int teaQuality;
+    int cRating;
 
     public int getBranchId() {
         return branchId;
@@ -53,14 +56,6 @@ public class BranchStore {
         this.advertismentCosts = advertismentCosts;
     }
 
-    public int getLeaseCost() {
-        return leaseCost;
-    }
-
-    public void setLeaseCost(int leaseCost) {
-        this.leaseCost = leaseCost;
-    }
-
     public int getRevenue() {
         return revenue;
     }
@@ -77,5 +72,35 @@ public class BranchStore {
         this.cityId = cityId;
     }
 
+    public int getLeaseCost() {
+        return leaseCost;
+    }
 
+    public void setLeaseCost(int leaseCost) {
+        this.leaseCost = leaseCost;
+    }
+
+    public String getSupplierName() {
+        return supplierName;
+    }
+
+    public void setSupplierName(String supplierName) {
+        this.supplierName = supplierName;
+    }
+
+    public int getTeaQuality() {
+        return teaQuality;
+    }
+
+    public void setTeaQuality(int teaQuality) {
+        this.teaQuality = teaQuality;
+    }
+
+    public int getcRating() {
+        return cRating;
+    }
+
+    public void setcRating(int cRating) {
+        this.cRating = cRating;
+    }
 }
