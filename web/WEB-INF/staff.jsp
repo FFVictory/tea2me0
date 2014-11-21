@@ -52,8 +52,7 @@
         %>
 
         <tr>
-            <td><a href="/BranchUpdate?param1=<%=fi.getStaffId()%>"><%=fi.getStaffId()%>
-            </a></td>
+            <td><a href="/StaffUpdate?param1=<%=fi.getStaffId()%>"><%=fi.getStaffId()%></a></td>
             <td><%=fi.getFirstName()%></td>
             <td><%=fi.getLastName()%></td>
             <%
