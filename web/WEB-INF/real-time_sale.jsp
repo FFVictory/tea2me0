@@ -18,60 +18,62 @@
 <html>
 <head>
     <title> Real-time Sale</title>
-</head>
-<body>
-<%
-   // LoggedIn lg = (LoggedIn) session.getAttribute("LoggedIn");
-   // if (lg != null) {%>
-<!-- I need login to pass BranchID to me.-->
-<style>
-    #header {
-        background-color:greenyellow;
-        color:black;
-        text-align:center;
-        padding:10px;
-    }
-    #nav {
-        line-height:30px;
-        background-color:#eeeeee;
-        height:500px;
-        width:1000px;
-        float:left;
-        padding:5px;
-    }
-    .nav1 {
-        line-height:30px;
-        background-color:#eeeeee;
-        height:166px;
-        width:1000px;
-        float:left;
-        padding:5px;
-    }
-    .nav11 {
-        line-height:30px;
-        background-color:#eeeeee;
-        height:166px;
-        width:185px;
-        float:left;
-        padding:5px;
-    }
-    #section {
+    <style>
+        #header {
+            background-color:greenyellow;
+            color:black;
+            text-align:center;
+            padding:10px;
+        }
+        #nav {
+            line-height:30px;
+            background-color:#eeeeee;
+            height:500px;
+            width:1000px;
+            float:left;
+            padding:5px;
+        }
+        .nav1 {
+            line-height:30px;
+            background-color:#eeeeee;
+            height:166px;
+            width:1000px;
+            float:left;
+            padding:5px;
+        }
+        .nav11 {
+            line-height:30px;
+            background-color:#eeeeee;
+            height:166px;
+            width:185px;
+            float:left;
+            padding:5px;
+        }
+        #section {
 
-        float:left;
-        padding:10px;
-    }
-    #footer {
-        background-color:black;
-        color:white;
-        clear:both;
-        text-align:center;
-        padding:15px;
-    }
-</style>
+            float:left;
+            padding:10px;
+        }
+        #footer {
+            background-color:black;
+            color:white;
+            clear:both;
+            text-align:center;
+            padding:15px;
+        }
+    </style>
+</head>
+
+<body>
 <div id="header"><h1>TeaToMe</h1></div>
 <div id="footer">
     <p1>TeaToMe  All rights reserved.</p1>
 </div>
+<%
+   LoggedIn lg = (LoggedIn) session.getAttribute("LoggedIn");
+  if (lg != null) {%>
+
+
 
 <div id="nav">
     <div class="nav1">
@@ -184,21 +186,21 @@
     <% System.out.println("jsp");%>
     <form  method="GET" action="rtSale" >
            LoyaltyCardID : <input type="number" name="LCid">
-        <input type="submit" name="sc" value ="Sale Complete" style="width: 120px; height: 30px;">
+        <input type="submit" name="sc" value ="Sale Complete" style="width: 100px; height: 30px;">
     </form>
 
     <form  method="POST" action="rtSale" >
-        <input type="submit" name="cli" value ="Cancel Last Item" style="width: 120px; height: 30px;">
+        <input type="submit" name="cli" value ="Cancel Last Item" style="width: 100px; height: 30px;">
     </form>
     <% } %>
-    <button onclick="window.location='sale.jsp'">back</button>
+    <button onclick="window.location='sale.jsp'"style="width: 100px; height: 30px;">back</button>
 
     <form action="/Logout" method="post">
         <input type="submit" value="Logout">
     </form>
 </div>
-<%//}else{%>
+<%}else{%>
 <li><a href="index.jsp">Login</a></li>
-<% //  }%>
+<%   }%>
 </body>
 </html>

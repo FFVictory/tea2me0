@@ -60,7 +60,7 @@
   BranchId : <input type="text" name="branchId" id="branchIdId"><br>
   <input type="submit" value="Search" id="submission"style="width: 100px; height: 30px;">
 </form>
-<br>
+<br><br><br>
 <form action="/Logout" method="post">
   <input type="submit" value="Logout"style="width: 100px; height: 30px;">
 </form>

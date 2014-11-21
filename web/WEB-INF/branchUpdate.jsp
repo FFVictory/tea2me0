@@ -9,9 +9,35 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <style>
+        #header {
+            background-color:greenyellow;
+            color:black;
+            text-align:center;
+            padding:10px;
+        }
+        #footer {
+            background-color:black;
+            color:white;
+            clear:both;
+            text-align:center;
+            padding:15px;
+        }
+        body {
+            color:grey;
+            position: absolute;
+            left: 30px;
+            top: 20px;
+            text-align: center;}
+
+    </style>
     <title></title>
 </head>
 <body>
+<div id="header"><h1>TeaToMe</h1></div>
+<div id="footer">
+    <p1>TeaToMe  All rights reserved.</p1>
+</div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript">
     function validateMyForm() {
@@ -49,7 +75,7 @@
 
     </ul>
     <br/>
-    <input type="submit" value="Update">
+    <input type="submit" value="Update"style="width: 100px; height: 30px;">
 </form>
 </body>
 </html>

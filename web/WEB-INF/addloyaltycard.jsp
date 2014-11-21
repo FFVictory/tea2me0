@@ -9,12 +9,38 @@
 <%@page import="stores.*" %>
 <html>
 <head>
+    <style>
+        #header {
+            background-color:greenyellow;
+            color:black;
+            text-align:center;
+            padding:10px;
+        }
+        #footer {
+            background-color:black;
+            color:white;
+            clear:both;
+            text-align:center;
+            padding:15px;
+        }
+        body {
+            color:grey;
+            position: absolute;
+            left: 30px;
+            top: 20px;
+            text-align: center;}
+
+    </style>
     <title>addloyaltycard </title>
 </head>
 <body>
+<div id="header"><h1>TeaToMe</h1></div>
+<div id="footer">
+    <p1>TeaToMe  All rights reserved.</p1>
+</div>
 <%
-//LoggedIn lg = (LoggedIn) session.getAttribute("LoggedIn");
-   // if (lg != null) {%>
+LoggedIn lg = (LoggedIn) session.getAttribute("LoggedIn");
+    if (lg != null) {%>
 <article>
     <h3>Register a new LoyaltyCard:</h3>
     <form method="POST"  action="AddLoyaltyCard">
@@ -42,7 +68,7 @@
 
         </ul>
         <br/>
-        <input type="submit" value="Finish">
+        <input type="submit" value="Finish"style="width: 100px; height: 30px;">
     </form>
 
 </article>
@@ -52,9 +78,9 @@
     </ul>
 
 </footer>
-<button onclick="window.location='sale.jsp'">back</button>
-<%//}else{%>
+<button onclick="window.location='sale.jsp'"style="width: 100px; height: 30px;">back</button>
+<%}else{%>
 <li><a href="index.jsp">Login</a></li>
-<% //  }%>
+<%  }%>
 </body>
 </html>

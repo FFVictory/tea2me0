@@ -76,8 +76,8 @@
   }
   %>
 </table>
-<form action="/Logout" method="post"style="width: 100px; height: 30px;">
-  <input type="submit" value="Logout">
+<form action="/Logout" method="post">
+  <input type="submit" value="Logout"style="width: 100px; height: 30px;">
 </form>
 </body>
 </html>
