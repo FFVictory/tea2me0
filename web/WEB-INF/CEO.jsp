@@ -29,7 +29,9 @@
     <form action="/StaffOptions">
         <input type="submit" name="staff" value="Staff">
     </form>
-
+    <form action="/Certifications">
+        <input type="submit" name="staff" value="Tea Certification">
+    </form>
     <form action="/Logout" method="post">
         <input type="submit" value="Logout">
     </form>
