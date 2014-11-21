@@ -71,7 +71,7 @@ public class Login extends HttpServlet {
                 response.sendRedirect("/CEO");
                 break;
             case 4:
-                response.sendRedirect("/ET");
+                response.sendRedirect("/ExpansionTeam");
                break;    
             default:
                 response.sendRedirect("/Index");
