@@ -41,4 +41,21 @@ public class GeoPolitical {
         }
         return geoPoliticalList;
     }
+
+    public void addGeoPolitical(String country, int embargo, int sanctions, int visa, int riot) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            connect = DriverManager.getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306?"
+                    + "user=14ac3u32&password=cab123");
+            statement = connect.prepareStatement("Insert into 14ac3d32.geopolitical VALUES(?,?,?,?,?);");
+            statement.setString(1, country);
+            statement.setInt(2, embargo);
+            statement.setInt(3, sanctions);
+            statement.setInt(4, visa);
+            statement.setInt(5, riot);
+            statement.execute();
+        } catch (Exception e) {
+
+        }
+    }
 }

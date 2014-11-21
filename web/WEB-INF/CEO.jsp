@@ -17,7 +17,7 @@
     <form action="/PotentialBranch">
       <input type="submit" name="potential branch" value="potential branch">
     </form>
-    <form action="/GeoPolitical">
+    <form action="/GeoPolitics">
       <input type="submit" name="geo-political" value="geo-political">
     </form>
     <form action="/NaturalDisasters">
