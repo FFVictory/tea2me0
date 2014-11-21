@@ -19,22 +19,22 @@
             <h3>Register a new Staff Member:</h3>
             <form method="POST"  action="Register">
                 <ul>
-                    <li>Forename <input type="text" name="fname"></li>
-                    <li>Surname <input type="text" name="sname"></li>
-                    <li>Address <input type="text" name="address"></li>
-                    <li>Password <input type="password" name="password"></li>
-                    <li>Confirm Password <input type="password" name="confirmPassword"></li>
+                    <li>Forename <input type="text" name="fname"style="width: 300px; height: 50px;"></li>
+                    <li>Surname <input type="text" name="sname" style="width: 300px; height: 50px;"></li>
+                    <li>Address <input type="text" name="address"style="width: 300px; height: 50px;"></li>
+                    <li>Password <input type="password" name="password" style="width: 300px; height: 50px;"></li>
+                    <li>Confirm Password <input type="password" name="confirmPassword"style="width: 300px; height: 50px;"></li>
                     <%
                         LoggedIn lg = (LoggedIn) session.getAttribute("LoggedIn");
                         if(lg.getPosition()== 3){
                     %>
-                    <li>Manager Branch <input type="text" name="managerBranch"></li>
+                    <li>Manager Branch <input type="text" name="managerBranch"style="width: 100px; height: 30px;"></li>
                     <%
                         }
                     %>
                 </ul>
                 <br/>
-                <input type="submit" value="Register">
+                <input type="submit" value="Register"style="width: 100px; height: 30px;">
             </form>
 
         </article>
