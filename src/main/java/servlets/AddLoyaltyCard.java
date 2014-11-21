@@ -49,6 +49,7 @@ public class AddLoyaltyCard extends HttpServlet {
 //set infor for LoyaltyCard
         Loyaltycard lc = new Loyaltycard();
         lc.setFname(fname);
+
         lc.setLname(lname);
         lc.setCity(city);
         lc.setCareer(career);

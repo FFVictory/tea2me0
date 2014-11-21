@@ -22,6 +22,7 @@ import stores.customer;
  * Created by KJ on 2014/11/19.
  */
 public class LCardModel {
+
     private Connection connect = null;
     private PreparedStatement statement = null;
     private PreparedStatement preparedStatement = null;
@@ -83,37 +84,34 @@ public class LCardModel {
         }
     }
     public java.util.LinkedList<Integer> preference(String ca){//,Date d1, Date d2){
-        System.out.println("Welcome to preference.");
+
         java.util.LinkedList<Integer> ID = new java.util.LinkedList<>();
         try {
-            System.out.println("prepare to connect");
+
             Class.forName("com.mysql.jdbc.Driver");
             connect = DriverManager.getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306?"
                     + "user=14ac3u32&password=cab123");
-            System.out.println("connected");
+
             preparedStatement = connect.prepareStatement("Select loyaltyCardID from 14ac3d32.loyaltycard WHERE career=? order by loyaltyCardID;");
-            System.out.println("select loyaltycardID");
+
             preparedStatement.setString(1, ca);
             //AND dateOfBirth BETWEEN ? AND ?
                 //    preparedStatement.setDate(2, d1);
            // preparedStatement.setDate(3, d2);
-            System.out.println("test if it works");
+
             rs=preparedStatement.executeQuery();
-            System.out.println("wonder where ");
+
             int i;
-            while(!(rs.isAfterLast())){
-                System.out.println("is it here?");
-                System.out.println(rs.getRow());
+            while(!rs.isLast()){
+                rs.next();
                 i = rs.getInt("loyaltyCardID");
                 System.out.println("i="+i);
-                System.out.println("or maybe here");
                 ID.add(i);
-                rs.next();
             }
 
             preparedStatement.close();
+            rs.close();
             connect.close();
-
         } catch (Exception e) {
             System.out.println("Exception at LoyalCardModel");
         }

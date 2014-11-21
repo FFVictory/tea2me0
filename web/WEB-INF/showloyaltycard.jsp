@@ -10,7 +10,7 @@
 <%@page import="stores.*" %>
 <html>
 <head>
-    <title>showloyaltycard</title>
+    <title>showloyaltycard </title>
 </head>
 <body>
 <%//LoggedIn lg = (LoggedIn) session.getAttribute("LoggedIn");

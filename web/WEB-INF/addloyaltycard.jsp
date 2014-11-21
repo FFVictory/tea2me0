@@ -9,7 +9,7 @@
 <%@page import="stores.*" %>
 <html>
 <head>
-    <title>addloyaltycard</title>
+    <title>addloyaltycard </title>
 </head>
 <body>
 <%
