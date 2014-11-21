@@ -41,24 +41,35 @@ public class RTSale {
 
                 System.out.println("connecting...");
                 while (iterator.hasNext()) {
-
-
+                    System.out.println("goto loop");
                     Item tm = (Item) iterator.next();
-                    preparedStatement = connect.prepareStatement("insert into 14ac3d32.order values(?,?,?,?,?)");
+                   preparedStatement = connect.prepareStatement("insert into 14ac3d32.order values(?,?,?,?,?)");
                     preparedStatement.setInt(1, orderid);
                     preparedStatement.setDate(2, tm.getDate());
                     preparedStatement.setDouble(3, tm.getPrice());
                     preparedStatement.setString(4, tm.getName());
                     preparedStatement.setInt(5, cardid);
-
                     preparedStatement.executeUpdate();
+                  /*  preparedStatement = connect.prepareStatement("select bonusPoints from 14ac3d32.loyaltycard where loyaltyCardID=?");
+                    preparedStatement.setInt(1, cardid);
+                    int bp=resultSet.getInt("bonusPoints");
+                    System.out.println("bonusPoint"+bp);
+                    int newbp=bp+(int)tm.getPrice()*100;
+                    System.out.println("newBonusPoint"+newbp);
+                    preparedStatement.executeUpdate();
+                    preparedStatement = connect.prepareStatement("UPDATE 14ac3d32.loyaltycard SET bonusPoints=?  WHERE loyaltyCardID=?;");
+                    preparedStatement.setInt(1, newbp);
+                    preparedStatement.setInt(2, cardid);
+                    preparedStatement.executeUpdate();*/
                     orderid++;
+                    System.out.println(orderid);
                     cid.setID(orderid);
                     System.out.println("succeed!");
-                    resultSet.close();
-                    preparedStatement.close();
-                    connect.close();
+
                 }
+                resultSet.close();
+                preparedStatement.close();
+                connect.close();
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
                 System.out.println("Exception in RTSaleModel");
@@ -71,7 +82,48 @@ public class RTSale {
                // }
         return cid.getID();
         }
+    public void BPoint(java.util.LinkedList<Item> t,int cardid) throws SQLException {
+        try {
 
+            Class.forName("com.mysql.jdbc.Driver");
+            connect = DriverManager.getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306?"
+                    + "user=14ac3u32&password=cab123");
+            Iterator<Item> iterator;
+            iterator = t.iterator();
+            while (iterator.hasNext()) {
+                System.out.println("Start updating bonuspoint");
+                Item tm = (Item) iterator.next();
+                    preparedStatement = connect.prepareStatement("select bonusPoints from 14ac3d32.loyaltycard where loyaltyCardID=?");
+                    preparedStatement.setInt(1, cardid);
+                resultSet=preparedStatement.executeQuery();
+                    int bp=resultSet.getInt("bonusPoints");
+                    System.out.println("bonusPoint"+bp);
+                    int newbp=bp+(int)tm.getPrice()*100;
+                    System.out.println("newBonusPoint"+newbp);
+                    preparedStatement.executeUpdate();
+                    preparedStatement = connect.prepareStatement("UPDATE 14ac3d32.loyaltycard SET bonusPoints=?  WHERE loyaltyCardID=?;");
+                    preparedStatement.setInt(1, newbp);
+                    preparedStatement.setInt(2, cardid);
+                    preparedStatement.executeUpdate();
+
+                System.out.println("succeed in updating");
+
+            }
+            resultSet.close();
+            preparedStatement.close();
+            connect.close();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            System.out.println("Exception in RTSaleModel");
+        }// finally {
+        // try {
+        //
+        // } catch (SQLException e) {
+        // System.out.println(e);
+        //}
+        // }
+
+    }
     public int getOrderID() {
         ID id = new ID();
         try {
