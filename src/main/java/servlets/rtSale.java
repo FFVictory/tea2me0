@@ -80,6 +80,10 @@ public class rtSale extends HttpServlet {
             //lt.resetItem();
             //session.setAttribute("list", lt);
         }
+        else{
+            RequestDispatcher rd = request.getRequestDispatcher("real-time_sale.jsp");
+            rd.forward(request,response);
+        }
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
