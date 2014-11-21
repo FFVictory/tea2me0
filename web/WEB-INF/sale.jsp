@@ -8,7 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <style>#header {
+    <style>
+        #header {
         background-color:greenyellow;
         color:black;
         text-align:center;
