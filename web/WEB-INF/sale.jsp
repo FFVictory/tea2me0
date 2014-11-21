@@ -14,10 +14,6 @@
 <form action="/rtSale" method="post" >
   <input type="submit" value="Real-time Transactions">
 </form>
-<form action="/SaleRecord" method="post">
-  <input type="submit" value="Sale Record">
-</form>
-
-
+<button onclick="window.location='addloyaltycard.jsp'">LoyaltyCard</button>
 </body>
 </html>

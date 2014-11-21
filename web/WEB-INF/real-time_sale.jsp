@@ -191,6 +191,11 @@
         <input type="submit" name="cli" value ="Cancel Last Item" style="width: 120px; height: 30px;">
     </form>
     <% } %>
+    <button onclick="window.location='sale.jsp'">back</button>
+
+    <form action="/Logout" method="post">
+        <input type="submit" value="Logout">
+    </form>
 </div>
 <%//}else{%>
 <li><a href="index.jsp">Login</a></li>

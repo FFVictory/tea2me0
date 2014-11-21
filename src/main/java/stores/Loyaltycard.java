@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat;
  */
 public class Loyaltycard {
 
-    
+
     private String fname=null;
     private String lname=null;
     private String city=null;

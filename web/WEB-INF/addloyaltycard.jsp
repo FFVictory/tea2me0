@@ -24,7 +24,7 @@
             <li>City <input type="text" name="city"></li>
             <li>
                 Career <select name="career">
-                <option value="A">Doctor//Dentist/Lawyer</option>
+                <option value="A">Doctor/Dentist/Lawyer</option>
                 <option value="B">Teacher/Professor/Civil Servant</option>
                 <option value="C">White Collar</option>
                 <option value="D">Farmer/Worker/Individual Business/Staff</option>
@@ -52,6 +52,7 @@
     </ul>
 
 </footer>
+<button onclick="window.location='sale.jsp'">back</button>
 <%//}else{%>
 <li><a href="index.jsp">Login</a></li>
 <% //  }%>
