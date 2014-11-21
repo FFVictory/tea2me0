@@ -51,7 +51,7 @@ public class rtSale extends HttpServlet {
             System.out.println(m);
             customer ct = new customer();
             int cardid=404;
-            if(m != null)
+            if(m.length() > 0)
                 cardid = Integer.parseInt(m);
             ct.setID(cardid);
             session.setAttribute("ctm", ct);//////////////used?
